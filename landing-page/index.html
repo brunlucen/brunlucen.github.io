@@ -5,8 +5,94 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="style.css">
-  <title>MTM6201-landing-page</title>
+  <meta name="description" content="DoorDash job application">
+  <meta name="keywords" content="jobs,delivery,side hustle">
+  <meta name="author" content="Dash">
+  <title>Dash - MTM6201-landing-page</title>
+  <!--Fonts - Montserrat-->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel="stylesheet" href="css/meyerreset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <!--Favicon-->
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
 </head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <!--<div class="logo"></div> -->
+      <img src="img/logo/logo.png">
+    </header>
+    <main>
+      <div>
+        <h1>Want to be your own boss?</h1>
+        <p>Start today and make up to $30/hr driving your own vehicle with Dash. <span>Safe. Secure. Reliable.</span>
+        </p>
+      </div>
+      <div class="scooter">
+        <img src="img/bg-image/scooter.svg">
+      </div>
+      <form action="index.html" method="POST">
+        <h2 class="title">Apply Now</h2>
+        <fieldset>
+          <legend>Enter your info below<span> to get started</span>.</legend>
+          <div>
+            <!-- <label for="fname">First Name</label> -->
+            <input type="text" name="fname" id="fname" placeholder="First name">
+          </div>
+          <div>
+            <!-- <label for="lname">Last Name</label> -->
+            <input type="text" name="lname" id="lname" placeholder="Last Name">
+          </div>
+          <div>
+            <!-- <label for="email">Email address</label> -->
+            <input type="email" name="email" id="email" placeholder="Email address">
+          </div>
+          <div>
+            <!-- <label for="phone">Phone number</label> -->
+            <input type="text" name="phone" id="phone" placeholder="Phone number">
+          </div>
+        </fieldset>
+        <div class="boxes">
+          <input type="checkbox" id="terms">
+          <label for="terms">I agree to dash terms</label>
+        </div>
+        <input type="submit" value="DRIVE WITH US">
+        <p>Already applied? <a href="#">Check your application status here</a></p>
+      </form>
+    </main>
+    <footer>
+      <div class="footer-wrapper">
+        <div>
+          <h3>See how much you can earn with Dash.</h3>
+          <p>How many hours do you want to drive with us this week?</p>
+          <form>
+            <fieldset>
+              <div class="flex">
+                <!-- <label for="hours">Hours</label> -->
+                <input type="number" name="hours" min="0" max="100" id="hours" placeholder="Hours">
+                <!-- <label for="city">City</label> -->
+                <input type="text" name="city" id="city" placeholder="City">
+              </div>
+            </fieldset>
+            <input type="submit" value="CALCULATE">
+          </form>
+
+        </div>
+        <div class="footer-social">
+          <ul>
+            <li><img class="facebook" src="img/icons/facebook.svg" alt=""></li>
+            <li><img src="img/icons/instagram.svg" alt=""></li>
+            <li><img src="img/icons/twitter.svg" alt=""></li>
+            <li><img src="img/icons/linkedin.svg" alt=""></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+</body>
 
 </html>
