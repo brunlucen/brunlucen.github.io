@@ -49,10 +49,6 @@ footer li {
   margin: 2em 0 2em 2em;
 }
 
-footer ul img.facebook {
-  border-radius: 50%
-}
-
 /* CLASSES - Reusable classes */
 
 header {
@@ -82,7 +78,7 @@ img {
 }
 
 .scooter {
-  margin: 1em 0;
+  padding: 2em;
 }
 
 /* FORM */
@@ -247,12 +243,18 @@ footer p {
   margin: 0 0 0.625em 0;
 }
 
-form legend span {
-  display: none;
+form p {
+  font-size: 0.8em;
+  text-align: center;
 }
 
-form p {
-  font-size: smaller;
+form p a {
+  color: #FF8480;
+  text-decoration: none;
+}
+
+form legend span {
+  display: none;
 }
 
 p span {
@@ -262,7 +264,7 @@ p span {
 footer h3 {
   font-size: 1.125em;
   font-weight: 800;
-  line-height: 1.4;
+  line-height: 1;
   max-width: 90%;
   margin-bottom: 0.5em;
 }
@@ -278,8 +280,33 @@ footer h3 {
     width: 100%;
   }
 
+  form legend span {
+    display: initial;
+  }
+
+
   .scooter {
     padding: 0 2em;
+  }
+}
+
+/* MEDIA Desktop - 1200px special height issues*/
+@media screen and (min-width: 1200px) and (max-height: 900px) {
+  h2 {
+    font-size: 1.5em;
+    margin: 0;
+  }
+
+  form legend {
+    font-size: 1em;
+  }
+
+  main form {
+    padding: 1.2em;
+  }
+
+  input[type="submit"] {
+    height: 40px
   }
 }
 
@@ -287,20 +314,27 @@ footer h3 {
 @media (min-width: 1200px) {
   .wrapper {
     padding: 0;
+    position: relative;
     height: 100vh;
   }
 
   header {
-    padding: 1.3em 140px;
+    padding: 1em 8.75em;
   }
 
   main {
     margin: 0 8.75em;
     display: grid;
-    grid-template-rows: repeat(1, minmax(540px, 600px) 1fr);
+    grid-template-rows: minmax(400px, 480px);
     grid-template-columns: repeat(12, 1fr);
   }
 
+  main form {
+    grid-column: 9 / span 12;
+    grid-row: 1;
+    margin: 0;
+    height: fit-content;
+  }
 
   main div {
     grid-column: 1 / span 4;
@@ -312,29 +346,30 @@ footer h3 {
     grid-row: 1;
   }
 
-  main form {
-    grid-column: 9 / span 12;
-    grid-row: 1;
-    margin: 0 0 3em;
-    padding: 3em;
-  }
-
   div.footer-wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1.625em 140px;
+    padding: 1.625em 8.5em;
   }
-
 
   h1 {
     font-size: 4rem;
   }
+
 }
 
 @media (min-width: 1600px) {
   h1 {
     font-size: 5rem;
+  }
+
+  form legend {
+    font-size: 1.5em;
+  }
+
+  main {
+    grid-template-rows: minmax(400px, 580px);
   }
 }
 
@@ -345,7 +380,7 @@ footer h3 {
   div.footer-wrapper {
     width: 100%;
     max-width: 1640px;
-    margin: auto;
+    margin: 0 auto;
     padding: 2em 0;
   }
 }
