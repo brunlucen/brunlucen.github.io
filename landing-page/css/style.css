@@ -1,6 +1,9 @@
-/* mtm6201-landing-page */
+/* 
+mtm6201-landing-page 
+Bruno Lucena
+*/
 
-/* GLOBAL */
+/* GLOBAL - Setting the global elements of the page */
 * {
   box-sizing: border-box;
 }
@@ -27,27 +30,35 @@ main {
   margin: 0 2.5em;
 }
 
-figure {
-  margin: 0 0 1em
-}
-
-/* footer */
 footer {
   background-color: #FFFD8C;
+  margin: 3em 0 0 0;
 }
 
-div.footer-wrapper {
+/* Footer wrapper is being used mainly as a way to control padding inside */
+.footer-wrapper {
   padding: 1.5em 2.5em;
 }
 
 footer ul {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 footer li {
-  margin: 2em 0 2em 2em;
+  margin: 0.75em;
+  padding: 0.3em;
+  background: transparent;
+  transition: 0.2s all ease-in;
+  -o-transition: 0.2s all ease-in;
+  -moz-transition: 0.2s all ease-in;
+  border-radius: 0.4em;
 }
+
+footer li:hover {
+  background-color: white;
+}
+
 
 /* CLASSES - Reusable classes */
 
@@ -87,7 +98,6 @@ main form {
   border-radius: 1em;
   padding: 1.6em;
   box-shadow: 5px 10px 15px 0px rgba(51, 49, 49, 0.4);
-  margin: 2.5em 0;
 }
 
 fieldset div {
@@ -103,13 +113,22 @@ fieldset label {
 }
 
 input {
-  height: 3em
+  height: 3em;
+  font-family: 'Montserrat', sans-serif;
+}
+
+::placeholder,
+::-webkit-input-placeholder,
+::-moz-placeholder,
+::-ms-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #9B9B9B;
 }
 
 main input {
   background-color: whitesmoke;
   width: 100%;
-  margin: 0 0 1em;
+  margin: 0 0 0.8em;
 }
 
 main input,
@@ -148,7 +167,8 @@ input#city {
   margin: 0 0 0 0.8em;
 }
 
-/*Checkboxes styles*/
+
+/* Checkboxes styles - I found this code online but I can't really remember where, I've tweaked a little to match the checkbox used on the XD prototype */
 input[type="checkbox"] {
   display: none;
 }
@@ -157,6 +177,7 @@ input[type="checkbox"] {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0.3em 0;
 }
 
 .boxes label {
@@ -168,8 +189,7 @@ input[type="checkbox"] {
 input[type="checkbox"]+label {
   display: block;
   position: relative;
-  padding-left: 35px;
-  margin-bottom: 10px;
+  padding: 0 0 0 2em;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -180,16 +200,18 @@ input[type="checkbox"]+label {
 input[type="checkbox"]+label:before {
   content: '';
   display: block;
-  width: 20px;
-  height: 20px;
+  width: 1.2em;
+  height: 1.2em;
   border: 1px solid black;
   border-radius: 0.4em;
   position: absolute;
   left: 0;
   top: 0;
   opacity: 1;
-  -webkit-transition: all .12s, border-color .08s;
-  transition: all .12s, border-color .08s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
 }
 
 input[type="checkbox"]:checked+label:before {
@@ -198,26 +220,26 @@ input[type="checkbox"]:checked+label:before {
   left: 5px;
   border-radius: 0;
   opacity: 1;
-  border: 1px solid cornflowerblue;
+  border: 1px solid green;
   border-top-color: transparent;
   border-left-color: transparent;
   -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 
 input[type="checkbox"]:checked+label {
-  color: cornflowerblue;
+  color: green;
 }
 
 main input#terms {
   padding: 0;
-  height: auto;
-  border-radius: 0.7em;
+  border-radius: 0.6em;
   border: 1px solid #333131;
   background-color: white;
 }
 
-/* TEXT */
 h1 {
   font-size: 3.75em;
   margin: 0 0 0.5em;
@@ -225,7 +247,7 @@ h1 {
 
 h2 {
   font-size: 2.3em;
-  margin: 0 0 0.4em 0;
+  margin: 0 0 0.3em 0;
 }
 
 h1,
@@ -240,7 +262,7 @@ p {
 form legend,
 footer p {
   font-size: 1em;
-  margin: 0 0 0.625em 0;
+  padding: 0 0 1em 0;
 }
 
 form p {
@@ -253,11 +275,18 @@ form p a {
   text-decoration: none;
 }
 
+form p a:visited,
+form p a:hover {
+  color: #CA3C37;
+  text-decoration: underline;
+  transition: 0.3s all ease-in;
+}
+
 form legend span {
   display: none;
 }
 
-p span {
+.subtitle span {
   display: none;
 }
 
@@ -278,27 +307,27 @@ footer h3 {
   footer input[type="submit"] {
     margin: 0 0 0 0.5em;
     width: 100%;
+    line-height: 0;
   }
 
   form legend span {
     display: initial;
   }
 
-
   .scooter {
-    padding: 0 2em;
+    padding: 1em 2em;
   }
 }
 
-/* MEDIA Desktop - 1200px special height issues*/
+/* MEDIA Desktop - 1200px  and height 900px / I had to change some attributes to be able to make the layout work on laptops or screens with a height smaller than 900px. I did not want to use percentage based paddings or margins so I created a special query for this */
 @media screen and (min-width: 1200px) and (max-height: 900px) {
   h2 {
-    font-size: 1.5em;
+    font-size: 2em;
     margin: 0;
   }
 
   form legend {
-    font-size: 1em;
+    padding: 0.5em 0 1em;
   }
 
   main form {
@@ -306,7 +335,16 @@ footer h3 {
   }
 
   input[type="submit"] {
-    height: 40px
+    height: 40px;
+    line-height: 0;
+  }
+
+  footer {
+    margin: 0;
+  }
+
+  footer li {
+    margin: 0 0 0 2em;
   }
 }
 
@@ -319,7 +357,7 @@ footer h3 {
   }
 
   header {
-    padding: 1em 8.75em;
+    padding: 1em 8.75em 0;
   }
 
   main {
@@ -357,22 +395,38 @@ footer h3 {
     font-size: 4rem;
   }
 
+  .subtitle span {
+    display: block;
+    padding: 1em 0 0;
+  }
 }
 
+/* Media 1600px I implemented some minor adjustments to the layout for the 1600px viewports */
 @media (min-width: 1600px) {
   h1 {
     font-size: 5rem;
   }
 
   form legend {
-    font-size: 1.5em;
+    font-size: 1.3em;
+    line-height: 1;
   }
 
   main {
     grid-template-rows: minmax(400px, 580px);
   }
+
+  main input,
+  form input {
+    font-size: 1em;
+  }
+
+  form p {
+    font-size: 1em;
+  }
 }
 
+/* Desktop 1920 - To make it identical to the prototype, I made one minor change to the max-width */
 @media (min-width: 1920px) {
 
   header,
