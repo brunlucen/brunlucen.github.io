@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Picture This!</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="header">
+    <div class="title">
+      <h1>Picture This!</h1>
+      <h4>My Really Cool Blog Post</h4>
+    </div>
+    <picture>
+      <source media="(max-width: 320px)" srcset="images/museum-320_x_180.jpg">
+      <source media="(max-width: 480px)" srcset="images/museum-480_x_269.jpg">
+      <source media="(max-width: 720px)" srcset="images/museum-720_x_405.jpg">
+      <source media="(max-width: 959px)" srcset="images/museum-960_x_540.jpg">
+      <source media="(max-width: 960px)" srcset="images/museum-960_x_960.jpg">
+      <source media="(max-width: 1280px)" srcset="images/museum-1280_x_1280.jpg">
+      <source media="(min-width: 1281px)" srcset="images/museum-1600_x_1600.jpg">
+      <img src="images/museum.jpg" alt="Chris standing up holding his daughter Elva">
+    </picture>
+  </header>
+</body>
+
+</html>
