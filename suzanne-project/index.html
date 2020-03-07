@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Suzanne Collins | Acclaimed author of The Hunger Games Series</title>
+  <!--Favicon-->
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+  <!--SEO-->
+  <meta name="description"
+    content="Suzanne Collins is the author of the much-loved series of three Hunger Games novels, originally published between 2008 and 2010. Along with the original series, Suzanne is launching a prequel for the Hunger Games series. Suzanne has sold over 70 million copies, been translated into more than 50 languages, and made into four blockbuster films."">
+  <meta name=" keywords" content="The Hunger Games, Suzanne Collins, Books, Young Adult, Gregor, Underland Chronicles">
+  <meta name="author" content="Suzanne Collins">
+  <!--CSS Starts here-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <!--Google Fonts-->
+  <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700|Roboto:300,400,700,900&display=swap"
+    rel="stylesheet">
+  <!--FontAwesome-->
+  <script src="https://kit.fontawesome.com/ea152fc1df.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="introduction"></div>
+  <div class="wrapper">
+    <header>
+      <!-- Mobile Hamburguer button - I actually forgot to put this on my XD file -->
+      <input class="menu-btn" type="checkbox" id="menu-btn" />
+      <label class="menu-icon" for="menu-btn">
+        <span class="hamburguer"></span>
+      </label>
+      <div class="logo">
+        <img src="img/logohorizontal.svg">
+        <ul>
+          <li>
+            <h3>Home</h3>
+          </li>
+        </ul>
+      </div>
+      <nav>
+        <img src="img/logo.svg">
+        <ul class="menu">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="hungergames.html">Hunger Games</a></li>
+          <li><a href="hungergames.html">The Underland Chronicles</a></li>
+          <li><a href="otherworks.html">Other works</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+        <ul class="social">
+          <li><a href=""><img src="img/instagram.svg"> </a> </li>
+          <li><a href=""><img src="img/twitter.svg"> </a> </li>
+          <li><a href=""><img src="img/facebook.svg" alt=""></a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="image">
+          <!-- I'm not sure if source set is needed since the jpg is only 40kbs -->
+          <img src="img/cover.jpeg" alt="Book Cover">
+        </div>
+        <div>
+          <h1 class="">The prequel is coming!</h1>
+          <p class="margin-vh">Are you ready for the book of a lifetime? Go back to Panem and live again!</p>
+          <div class="flex">
+            <a href="" class="button">Pre-order now</a>
+            <a href="" class="button link">Learn More</a>
+          </div>
+        </div>
+
+        <a href="#progress">
+          <i class="fas fa-chevron-down"></i>
+        </a>
+      </section>
+      <!-- I took the liberty to correct a poor design decision (one of many)and actually separated the sections, leaving the hero section to be 100vh -->
+      <section id="progress" class="light">
+        <a href="">
+          <div class="card">
+            <img src="img/hand.svg" alt="">
+            <div>
+              <div>
+                <h3>Progress updates</h3><i class="fas fa-plus"></i>
+              </div>
+              <p>Finished 200 pages of the new novel. Sharing some thoughts about the process and also a few decisions.
+              </p>
+            </div>
+          </div>
+        </a>
+        <a href="">
+          <div class="card">
+            <img src="img/hungergamessymbol.svg" alt="">
+            <div>
+              <div>
+                <h3>The politics of Panem</h3><i class="fas fa-plus"></i>
+              </div>
+              <p>Learn more about the politics and about the secret hand that rules Panem. It's an exciting read!
+              </p>
+            </div>
+          </div>
+        </a>
+      </section>
+      <section class="dark books">
+        <div class="hungergames">
+          <div>
+            <h3>Book series</h3>
+            <h2>The Hunger Games is the best thing ever!</h2>
+            <p>People like gladiators and reality TV shows, so I thought "Why not combine both of them into something
+              cool". That's how the Hunger Games was born. </p>
+            <a href="" class="button">Learn More</a>
+          </div>
+        </div>
+        <div class="underland">
+          <div>
+            <h3>Underland chronicles</h3>
+            <h2>Meet Gregor in the Underland Chronicles</h2>
+            <p>Gregor is the chosen one. Gregor is also a boy that knows nothing about life and, well, the underworld.
+              Check out the story and how I wrote this book. It's been successful.
+            </p>
+            <a href="" class="button">Learn More</a>
+          </div>
+        </div>
+      </section>
+      <section class="blog light">
+        <div class="title">
+          <h1>
+            <small>Read my</small> Articles</h1>
+        </div>
+        <div>
+          <picture>
+            <source media="(max-width: 1920px)"
+              srcset="img/responsive/heroimg-320_x_213.jpg 320w, img/responsive/heroimg-480_x_320.jpg 480w, img/responsive/heroimg-768_x_512.jpg 768w, img/responsive/heroimg-960_x_640.jpg 960w"
+              sizes="100vw">
+            <img src="img/responsive/heroimg-1280_x_853.jpg" alt="Katniss shooting an arrow.">
+          </picture>
+          <div class="blog-card">
+            <h2>A new movie is on the making. Excited?</h2>
+            <p>After a few years of hiatus, Suzanne Collins is now releasing a new and surprising edition to the series.
+            </p>
+            <div class="flex"><span><i class="fas fa-clock"></i> 1h ago</span> <a href="#">Read more <i
+                  class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <picture>
+            <source media="(max-width: 1920px)"
+              srcset="img/responsive/books-old-book-knowledge-bookstore-34592-320_x_214.jpg 320w, img/responsive/books-old-book-knowledge-bookstore-34592-480_x_320.jpg 480w, img/responsive/books-old-book-knowledge-bookstore-34592-768_x_511.jpg 768w, img/responsive/books-old-book-knowledge-bookstore-34592-960_x_639.jpg 960w"
+              sizes="100vw">
+            <img src="img/responsive/books-old-book-knowledge-bookstore-34592.jpg" alt="Dusty Old books">
+          </picture>
+          <div class="blog-card">
+            <h2>I'm so bored and sick of Winter.</h2>
+            <p>We're almost out of the winter and I can't stand it. When will spring come? The championship depends on
+              it. </p>
+            <div class="flex"><span><i class="fas fa-clock"></i> 1h ago</span> <a href="#">Read more <i
+                  class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <picture>
+            <source media="(max-width: 1920px)"
+              srcset="img/responsive/muhammad-haikal-sjukri--RMBf_xSf2U-unsplash-320_x_213.jpg 320w, img/responsive/muhammad-haikal-sjukri--RMBf_xSf2U-unsplash-480_x_320.jpg 480w, img/responsive/muhammad-haikal-sjukri--RMBf_xSf2U-unsplash-768_x_512.jpg 768w, img/responsive/muhammad-haikal-sjukri--RMBf_xSf2U-unsplash-960_x_640.jpg 960w"
+              sizes="100vw">
+            <img src="img/muhammad-haikal-sjukri--RMBf_xSf2U-unsplash-960_x_640.jpg" alt="Man reading a book">
+          </picture>
+          <div class="blog-card">
+            <h2>Witchcraft is not a part of our gladiatorial ways!</h2>
+            <p>I know it's hard not to compare, but Katniss is not like Gregor or Harry. Let them all be.</p>
+            <div class="flex"><span><i class="fas fa-clock"></i> 1h ago</span> <a href="#">Read more <i
+                  class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <picture>
+            <source media="(max-width: 1920px)"
+              srcset="img/responsive/person-curving-wood-167708-320_x_214.jpg 320w, img/responsive/person-curving-wood-167708-480_x_320.jpg 480w, img/responsive/person-curving-wood-167708-768_x_511.jpg 768w, img/responsive/person-curving-wood-167708-960_x_639.jpg 960w"
+              sizes="100vw">
+            <img src="img/responsive/person-curving-wood-167708.jpg" alt="Man trying to start a fire">
+          </picture>
+          <div class="blog-card">
+            <h2>Show must go on!</h2>
+            <p>There's a game going on. A survival game featuring Katniss and Leipa. </p>
+            <div class="flex"><span><i class="fas fa-clock"></i> 1h ago</span> <a href="#">Read more <i
+                  class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>© Suzanne Collins 2020</p>
+    </footer>
+
+  </div>
+</body>
+
+</html>

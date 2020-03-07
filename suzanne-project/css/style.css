@@ -1,0 +1,891 @@
+/* 
+Suzanne Collins website
+by Bruno Lucena
+*/
+.color {
+  color: lightgreen;
+}
+
+/* GLOBAL SETTINGS */
+/* I went crazy with this, it's an awesome tool */
+:root {
+  --color-bg1: linear-gradient(-45deg, #707E56, #1B7F65, lightgreen, black);
+  --color-bg2: #E7E6D0;
+  --color-bg3: #1B7F65;
+  --color-default: white;
+  --color-btn-primary: #1D6B56;
+  --color-btn-link: transparent;
+  --color-btn-secondary: black;
+  --font-h: 'Roboto', sans-serif;
+  --font-p: 'PT Serif', sans-serif;
+  --color-light: white;
+  --color-dark: black;
+  --color-ptext: #333333;
+  --color-normal: #757575;
+  --color-active: black;
+  --fontsize-huge: 5rem;
+  --fontsize-big: 3rem;
+  --fontsize-large: 1.5rem;
+  --fontsize-tablet: 1.3rem;
+  --fontsize-normal: 1rem;
+  --fontsize-md: 0.9375rem;
+  --fontsize-sm: 0.8125rem;
+  --padding-normal: 1.5rem;
+  --padding-big: 2.5rem;
+  --padding-small: 1rem;
+  --padding-nav: 1em 0;
+  --mobile-padding: 0 1rem;
+  --tablet-padding: 0 2.5rem;
+  --shadow-normal: 0 0 15px 10px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 100%;
+}
+
+html,
+body,
+footer,
+main,
+section {
+  font-family: var(--font-h);
+}
+
+/* GRID AND STRUCTURE */
+.wrapper {
+  width: 100%;
+  animation: fadeIn 0.8s ease-in;
+}
+
+header {
+  background-color: var(--color-default);
+  width: 100%;
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  grid-template-rows: 1fr;
+  height: 4.375rem;
+  box-shadow: var(--shadow-normal);
+}
+
+section {
+  background-color: var(--color-bg2);
+  padding: var(--padding-small);
+}
+
+/* Header structure */
+header div {
+  margin: auto
+}
+
+header div.logo ul {
+  display: none;
+}
+
+
+/* Hamburguer menu */
+header .menu-icon {
+  cursor: pointer;
+  padding: 1em;
+  position: relative;
+  justify-self: left;
+  align-self: center;
+}
+
+header .menu-icon .hamburguer {
+  background: #333;
+  display: block;
+  height: 3px;
+  position: relative;
+  transition: background .2s ease-out;
+  width: 20px;
+  z-index: 99;
+}
+
+header .menu-icon .hamburguer:before,
+header .menu-icon .hamburguer:after {
+  background: #333333;
+  content: '';
+  display: block;
+  height: 3px;
+  position: absolute;
+  transition: all .2s ease-out;
+  width: 100%;
+}
+
+header .menu-icon .hamburguer:before {
+  top: 8px;
+  height: 3px;
+  width: 65%;
+}
+
+header .menu-icon .hamburguer:after {
+  top: -8px;
+  height: 3px;
+}
+
+/* The hamburguer icon and nav */
+header .menu-btn {
+  display: none;
+}
+
+header .menu-btn:checked~nav {
+  opacity: 1;
+  min-height: 100vh;
+  position: fixed;
+  /* The only reason I'm using fixed is so that the horizontal logo is covered by the menu */
+  width: 100%;
+  z-index: 2;
+  top: 0;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 1fr 4fr 1fr;
+  justify-content: space-between;
+  transition: all .3s;
+}
+
+header .menu-btn:checked~.menu-icon .hamburguer {
+  background: transparent;
+}
+
+/* width 100% "corrects" that fact that one of the bars is 65% wide. So, for the X to appear correctly, we need to set this */
+header .menu-btn:checked~.menu-icon .hamburguer:before {
+  transform: rotate(-45deg);
+  width: 100%;
+}
+
+header .menu-btn:checked~.menu-icon .hamburguer:after {
+  transform: rotate(45deg);
+}
+
+header .menu-btn:checked~.menu-icon .hamburguer:before,
+header .menu-btn:checked~.menu-icon .hamburguer:after {
+  top: 0;
+}
+
+nav {
+  grid-area: menu;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background-color: whitesmoke;
+}
+
+header li a {
+  font-family: var(--font-h);
+  font-weight: 300;
+  display: block;
+  padding: var(--padding-nav);
+  color: var(--color-normal);
+  font-size: 1.25em;
+  width: fit-content;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  grid-column: 3 / 9;
+}
+
+header li a.active {
+  color: var(--color-active);
+  font-weight: 600;
+}
+
+header li a.active::before {
+  content: "";
+  background-color: black;
+  position: absolute;
+  top: 1em;
+  width: 4px;
+  bottom: 1em;
+  left: -1.5em;
+}
+
+header li a:hover,
+header .menu-btn:hover {
+  color: var(--color-bg3);
+  font-weight: 900;
+}
+
+header nav {
+  opacity: 0;
+  max-height: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+header nav ul {
+  margin: 1em auto;
+  width: 100%;
+  display: flex;
+  max-width: 160px;
+  justify-content: center;
+  flex-direction: column;
+  grid-column: 4 / 10;
+}
+
+header ul.social {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+}
+
+header .social li img {
+  width: 24px;
+  margin: 0;
+}
+
+div.social i {
+  padding: 0 0.1em
+}
+
+/* Header logo is following the prototype design where I made the decision to display a horizontal logo on the masthead but another version of the logo in the mobile (hamburguer) menu */
+header img {
+  width: 160px;
+  height: auto;
+}
+
+header nav img {
+  margin: 1.5rem auto 0;
+  grid-column: 1 / span 12;
+}
+
+/* Main content */
+section img {
+  width: 100%;
+}
+
+main div.image {
+  margin: 1rem 0 0 0;
+  max-width: 160px;
+}
+
+section div.image img {
+  transition: all 0.3s ease-in-out;
+}
+
+section div.image img:hover {
+  transform: scale3d(1.1, 1.1, 0.5);
+  transition: all 0.3s ease-in-out;
+}
+
+.hero {
+  padding-top: 4.375rem;
+  background-image: var(--color-bg1);
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  background-size: 400% 400%;
+  animation: Gradient 25s ease infinite;
+}
+
+
+section .card {
+  background-color: white;
+  margin: 1em 0;
+  padding: 1.5em;
+  border-radius: 0.3em;
+}
+
+section .card {
+  display: grid;
+  grid-template-columns: 72px 3fr;
+  grid-gap: 1rem;
+}
+
+section .card img {
+  max-height: 64px;
+}
+
+section .card div div {
+  display: flex;
+  justify-content: space-between;
+}
+
+section.books {
+  background-color: black;
+  padding: 0;
+}
+
+.books .underland {
+  background:
+    /* The gradient as it is shown on the XD */
+    linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 15%),
+    linear-gradient(360deg, rgba(0, 0, 0, 1)25%, rgba(0, 0, 0, 0) 75%),
+    /* The image - Mobile Version */
+    url("../img/responsive/underlandillustrations-320_x_447.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.books>div {
+  padding: 17em 2.5em 4em;
+  height: auto;
+  width: 100%;
+}
+
+.books .hungergames {
+  background:
+    /* The gradient as it is shown on the XD */
+    linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 15%),
+    linear-gradient(360deg, rgba(0, 0, 0, 1)25%, rgba(0, 0, 0, 0) 75%),
+    /* The image - Mobile Version */
+    url(../img/responsive/katniss_opt-320_x_384.png);
+  background-size: 85%;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+section.blog {
+  background-color: var(--color-bg2);
+}
+
+.blog>div:not(:nth-child(1)) {
+  position: relative;
+  padding: 1.5rem;
+  display: grid;
+  row-gap: 3.5rem;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+}
+
+.title {
+  padding: 3rem 2rem 2rem;
+}
+
+.blog div img,
+.blog div picture {
+  object-fit: cover;
+  height: 250px;
+  grid-column: 1 / span 12;
+  grid-row: 1 / 5;
+  margin: 0;
+}
+
+.blog-card {
+  background-color: white;
+  padding: 1.2em;
+  grid-column: 2/12;
+  grid-row: 3 / 5;
+  margin: 0;
+  box-shadow: var(--shadow-normal);
+  transition: all 0.3s ease-in-out;
+}
+
+.blog-card:hover {
+  transform: scale3d(1.1, 1.1, 1.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.blog-card div.flex {
+  justify-content: space-between;
+}
+
+footer {
+  padding: var(--padding-normal);
+  text-align: center;
+  border-top: 1px solid #cccccc;
+}
+
+/* Useful classes */
+.flex {
+  display: flex;
+  justify-content: center;
+}
+
+.margin-vh {
+  margin: 1rem 0;
+}
+
+.margin-vw {
+  margin: 0 0.5rem;
+}
+
+/* Typography */
+section h1 {
+  font-size: var(--fontsize-big);
+  font-family: var(--font-h);
+}
+
+section.hero h1 {
+  color: var(--color-light);
+  font-weight: 900;
+}
+
+section.hero p {
+  font-size: var(--fontsize-normal);
+}
+
+.blog h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: 300;
+  font-family: var(--font-h);
+  line-height: 1.5;
+  margin: 0 0 0.9rem;
+}
+
+section p,
+.blog-card div p {
+  font-size: var(--fontsize-normal);
+  font-family: var(--font-p);
+  line-height: 1.7;
+}
+
+section:not(.light) p {
+  color: var(--color-light);
+}
+
+section.dark {
+  color: var(--color-light);
+}
+
+.card h3,
+.books h3,
+.blog-card .flex a,
+.logo h3 {
+  text-transform: uppercase;
+  font-size: var(--fontsize-normal);
+  font-weight: 900;
+  font-family: var(--font-h);
+  line-height: 1.5;
+}
+
+.card h3,
+.books h3,
+.blog-card .flex a {
+  padding: 0 0 1rem 0;
+}
+
+.card p {
+  color: black;
+}
+
+.blog-card h2 {
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.blog-card p {
+  font-size: 0.8rem;
+  margin: 0 0 1em;
+}
+
+.title h1 small {
+  font-size: 60%;
+  display: block;
+  line-height: 1.4;
+}
+
+footer p {
+  font-size: small;
+}
+
+
+/* Button */
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.books a.button {
+  margin: 1.5rem 0;
+}
+
+a.button {
+  padding: var(--padding-small);
+  background-color: var(--color-btn-primary);
+  border-radius: 0.3rem;
+  font-size: var(--fontsize-sm);
+  font-weight: 800;
+  text-decoration: none;
+  font-family: var(--font-h);
+  color: white;
+  min-width: 130px;
+  max-width: fit-content;
+  line-height: 1;
+  text-align: center;
+  display: block;
+  transition: all 0.5s ease-in;
+}
+
+a.button.link {
+  background-color: transparent;
+  border: 2px solid white;
+  margin: 0 0 0 1rem;
+  transition: all 0.5s ease-in;
+}
+
+a.button:hover,
+a.button.link:hover,
+a div.card:hover {
+  box-shadow: var(--shadow-normal);
+  transform: translateY(-5px);
+  transition: all 0.5s ease-in;
+}
+
+.blog-card a:hover {
+  color: cornflowerblue;
+
+  transition: all 0.5s ease-in;
+}
+
+.hero a i {
+  color: var(--color-light);
+}
+
+a i:hover {
+  transform: translateY(10px);
+  animation: MoveIn .5s infinite;
+}
+
+/* Animations */
+@keyframes MoveIn {
+  0% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0%;
+  }
+
+  50% {
+    opacity: 50%;
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%
+  }
+
+  50% {
+    background-position: 100% 50%
+  }
+
+  100% {
+    background-position: 0% 50%
+  }
+}
+
+/* Media queries */
+
+@media all and (min-width: 768px) and (max-height: 900px) and (orientation: portrait) {
+
+  /* Added this query to adjust for some tablets in portrait position that had up to 900px height */
+  main div.image {
+    width: 280px;
+  }
+}
+
+@media all and (min-width: 768px) {
+  header {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+  }
+
+  header div {
+    margin: 0;
+  }
+
+  header div.logo ul {
+    display: block;
+  }
+
+  header div.logo {
+    display: flex;
+  }
+
+  header div ul {
+    margin: 0 1em;
+  }
+
+  .underland,
+  .hungergames,
+  .blog,
+  section.light {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 2rem;
+    padding: 2rem 1rem;
+  }
+
+  section.light a {
+    grid-column: 2 / 12;
+  }
+
+  section.light .card {
+    margin: 0;
+  }
+
+  .books .hungergames {
+    background:
+      /* The gradient as it is shown on the XD */
+      linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 15%),
+      linear-gradient(360deg, rgba(0, 0, 0, 1)25%, rgba(0, 0, 0, 0) 75%),
+      /* The image - Mobile Version */
+      url("../img/responsive/katniss_opt-768_x_922.png");
+    background-size: 55%;
+    background-position: 80% top;
+    background-repeat: no-repeat;
+  }
+
+  .books .underland {
+    background:
+      /* The gradient as it is shown on the XD */
+      linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 15%),
+      linear-gradient(360deg, rgba(0, 0, 0, 1)25%, rgba(0, 0, 0, 0) 75%),
+      /* The image - Mobile Version */
+      url("../img/responsive/underlandillustrations-768_x_1072.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+
+  .hungergames div {
+    grid-column: 2 / 8;
+  }
+
+  .underland div {
+    grid-column: 6 /12;
+  }
+
+  .title {
+    padding: 2rem 0 0;
+  }
+
+  .blog>div:not(:nth-child(1)) {
+    padding: 0;
+  }
+
+  .blog div img,
+  .blog div picture {
+    height: 355px;
+    grid-column: 1 / span 11;
+    grid-row: 1/4
+  }
+
+  .blog-card {
+    grid-column: 6/13;
+    grid-row: 2 / 3;
+  }
+
+  .blog>div:first-child {
+    grid-row: 1;
+    grid-column: 2/12;
+    display: block;
+  }
+
+  .blog>div {
+    grid-column: 2/ 12;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+
+  main div.image {
+    max-width: 370px;
+  }
+
+  a.button {
+    font-size: var(--fontsize-normal);
+  }
+
+  /* Typography */
+
+  section h1 {
+    font-size: var(--fontsize-huge);
+  }
+
+  section.hero p {
+    font-size: var(--fontsize-large);
+  }
+
+  section.blog h1 {
+    font-size: var(--fontsize-big);
+  }
+
+  section p,
+  .blog-card div p,
+    {
+    font-size: var(--fontsize-tablet);
+  }
+}
+
+
+@media all and (min-width: 960px) {
+  section.blog {
+    padding-bottom: 3rem;
+  }
+
+  .blog-card {
+    grid-column: 2/12;
+    grid-row: 3 / 5;
+  }
+
+  .blog div img,
+  .blog div picture {
+    height: 355px;
+    grid-column: 1 / span 12;
+    grid-row: 1/4
+  }
+
+  .blog>div.title:first-child {
+    grid-column: 2/12;
+    grid-row-start: 1;
+  }
+
+  .blog>div:nth-child(even) {
+    grid-column: 2 / 7;
+  }
+
+  .blog>div:nth-child(odd) {
+    grid-column: 7/12;
+  }
+
+}
+
+@media all and (min-width: 1024px) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    ;
+  }
+
+  header div.logo {
+    display: none;
+  }
+
+  footer {
+    grid-column: 5/12
+  }
+
+  header label,
+  header .logo {
+    display: none;
+  }
+
+  header {
+    grid-column: 1 / span 3;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    box-shadow: none;
+  }
+
+  header nav {
+    opacity: 1;
+    display: flex;
+    height: 100vh;
+    max-height: 100%;
+    position: fixed;
+    flex-direction: column;
+    background: white;
+    justify-content: space-around;
+  }
+
+  main {
+    grid-column: 4/13;
+  }
+
+  section h1 {
+    font-size: var(--fontsize-huge);
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1fr;
+    padding: 1rem;
+  }
+
+  main div.image {
+    max-width: 100%;
+    grid-column: 2 / 6;
+  }
+
+  .flex {
+    justify-content: left;
+  }
+
+  section.hero div:not(.image) {
+    grid-column: 7/12;
+    text-align: left;
+  }
+
+  section.hero a {
+    grid-row: 2;
+    grid-column: 1/13;
+    transition: all 0.3s ease-in-out;
+  }
+
+  section.light a:first-child {
+    grid-column: 2 / 7;
+    grid-row: 1;
+  }
+
+  section.light a:nth-child(2) {
+    grid-column: 7 / 12;
+    grid-row: 1;
+  }
+
+  .books .hungergames {
+    background:
+      /* The gradient as it is shown on the XD */
+      linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 15%),
+      linear-gradient(360deg, rgba(0, 0, 0, 1)25%, rgba(0, 0, 0, 0) 75%),
+      /* The image - Mobile Version */
+      url("../img/responsive/katniss_opt-960_x_1153.png");
+    background-size: 55%;
+    background-position: 80% top;
+    background-repeat: no-repeat;
+  }
+
+  .books .underland {
+    background:
+      /* The gradient as it is shown on the XD */
+      linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 15%),
+      linear-gradient(360deg, rgba(0, 0, 0, 1)25%, rgba(0, 0, 0, 0) 75%),
+      /* The image - Mobile Version */
+      url("../img/responsive/underlandillustrations-960_x_1340.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+
+  .blog-card p {
+    font-size: 1.1rem;
+  }
+
+  a.button {
+    font-size: var(--fontsize-tablet);
+  }
+}
