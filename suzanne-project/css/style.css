@@ -733,8 +733,7 @@ a i:hover {
   }
 
   section p,
-  .blog-card div p,
-    {
+  .blog-card div p {
     font-size: var(--fontsize-tablet);
   }
 }
