@@ -26,16 +26,17 @@ by Bruno Lucena
   --fontsize-huge: 5rem;
   --fontsize-big: 3rem;
   --fontsize-large: 1.5rem;
-  --fontsize-tablet: 1.3rem;
+  --fontsize-tablet: 1.1rem;
   --fontsize-normal: 1rem;
   --fontsize-md: 0.9375rem;
   --fontsize-sm: 0.8125rem;
-  --padding-normal: 1.5rem;
   --padding-big: 2.5rem;
+  --padding-normal: 1.5rem;
   --padding-small: 1rem;
   --padding-nav: 1em 0;
   --mobile-padding: 0 1rem;
   --tablet-padding: 0 2.5rem;
+  --padding-grid-top: 1.5rem 0;
   --shadow-normal: 0 0 15px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -261,7 +262,8 @@ header nav img {
   grid-column: 1 / span 12;
 }
 
-/* Main content */
+/* Start of main content */
+
 section img {
   width: 100%;
 }
@@ -293,15 +295,11 @@ section div.image img:hover {
   animation: Gradient 25s ease infinite;
 }
 
-
 section .card {
   background-color: white;
-  margin: 1em 0;
-  padding: 1.5em;
+  margin: var(--padding-nav);
+  padding: var(--padding-normal);
   border-radius: 0.3em;
-}
-
-section .card {
   display: grid;
   grid-template-columns: 72px 3fr;
   grid-gap: 1rem;
@@ -356,7 +354,7 @@ section.blog {
 
 .blog>div:not(:nth-child(1)) {
   position: relative;
-  padding: 1.5rem;
+  padding: var(--padding-grid-top);
   display: grid;
   row-gap: 3.5rem;
   grid-template-columns: repeat(12, 1fr);
@@ -638,6 +636,7 @@ a i:hover {
     padding: 2rem 1rem;
   }
 
+  section.light div.flex,
   section.light a {
     grid-column: 2 / 12;
   }
@@ -665,8 +664,6 @@ a i:hover {
       linear-gradient(360deg, rgba(0, 0, 0, 1)25%, rgba(0, 0, 0, 0) 75%),
       /* The image - Mobile Version */
       url("../img/responsive/underlandillustrations-768_x_1072.jpg");
-    background-size: cover;
-    background-position: center;
   }
 
   .hungergames div {
@@ -769,6 +766,9 @@ a i:hover {
     grid-column: 7/12;
   }
 
+  h2 {
+    font-size: 2.5rem;
+  }
 }
 
 @media all and (min-width: 1024px) {
