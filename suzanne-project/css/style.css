@@ -70,7 +70,7 @@ section {
 header {
   background-color: var(--color-default);
   width: 100%;
-  z-index: 1;
+  z-index: 3;
   position: fixed;
   top: 0;
   display: grid;
@@ -224,7 +224,7 @@ header li a.active::before {
   position: fixed;
   min-width: 100px;
   top: 1rem;
-  right: 1rem;
+  right: 0;
   font-size: 1rem;
   z-index: 4;
   margin: 0;
@@ -307,8 +307,11 @@ section div.image img:hover {
   transition: all 0.3s ease-in-out;
 }
 
-.hero {
+section:first-child {
   padding-top: 4.375rem;
+}
+
+.hero {
   background-image: var(--color-bg1);
   height: 100vh;
   display: flex;
@@ -416,6 +419,22 @@ section.blog {
 
 .blog-card div.flex {
   justify-content: space-between;
+}
+
+.light.otherworks.white {
+  background-color: var(--color-default);
+}
+
+.otherworks {
+  padding: 1rem;
+}
+
+.otherworks div {
+  padding: 2rem 0 1rem;
+}
+
+.otherworks div:nth-child(2) {
+  padding: 0 2rem;
 }
 
 footer {
@@ -548,8 +567,6 @@ a.button {
   display: block;
   transition: all 0.5s ease-in;
 }
-
-
 
 .filter ul li a {
   color: black;
@@ -705,7 +722,22 @@ a div.card:hover {
   }
 
   .underland div {
+    padding: 0;
     grid-column: 6 /12;
+  }
+
+  .otherworks div {
+    grid-column: 2/7;
+    padding: 0rem 0 1rem
+  }
+
+  .otherworks div:nth-child(2) {
+    padding: 0 2rem;
+    grid-column: 7/12;
+  }
+
+  .white {
+    background-color: black;
   }
 
   .title {
@@ -861,6 +893,7 @@ a div.card:hover {
     display: flex;
     border-radius: 0.4rem;
     width: fit-content;
+    align-self: center;
   }
 
   .filter ul.tags {
