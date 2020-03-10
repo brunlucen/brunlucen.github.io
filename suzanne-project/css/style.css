@@ -18,6 +18,7 @@ by Bruno Lucena
   --color-btn-secondary: black;
   --font-h: 'Roboto', sans-serif;
   --font-p: 'PT Serif', sans-serif;
+  --font-em: 'Playfair Display', serif;
   --color-light: white;
   --color-dark: black;
   --color-ptext: #333333;
@@ -81,7 +82,6 @@ header {
 }
 
 section {
-  background-color: var(--color-bg2);
   padding: var(--padding-small);
 }
 
@@ -276,6 +276,12 @@ div.social i {
   padding: 0 0.1em
 }
 
+
+.about img {
+  object-fit: cover;
+  max-width: 720px;
+}
+
 /* Header logo is following the prototype design where I made the decision to display a horizontal logo on the masthead but another version of the logo in the mobile (hamburguer) menu */
 header img {
   width: 160px;
@@ -288,7 +294,6 @@ header nav img {
 }
 
 /* Start of main content */
-
 section img {
   width: 100%;
 }
@@ -307,20 +312,42 @@ section div.image img:hover {
   transition: all 0.3s ease-in-out;
 }
 
-section:first-child {
+section.about:nth-child(1) {
   padding-top: 4.375rem;
 }
 
 .hero {
-  background-image: var(--color-bg1);
   height: 100vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
   text-align: center;
+}
+
+.gradient {
+  background-image: var(--color-bg1);
   background-size: 400% 400%;
   animation: Gradient 25s ease infinite;
+}
+
+.about {
+  padding: 0;
+  text-align: left;
+}
+
+.about div,
+#about section:not(.about) {
+  padding: 2.5rem;
+  grid-column: 8 / 12;
+}
+
+.quote {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 60%;
+  margin: auto;
 }
 
 section .card {
@@ -329,13 +356,13 @@ section .card {
   padding: var(--padding-normal);
   border-radius: 0.3em;
   display: grid;
-  grid-template-columns: 72px 3fr;
+  grid-template-columns: 32px 3fr;
   grid-gap: 1rem;
 }
 
-section .card img {
-  max-height: 64px;
-}
+/* section .card img {
+  max-height: 32px;
+} */
 
 section .card div div {
   display: flex;
@@ -440,7 +467,6 @@ section.blog {
 footer {
   padding: var(--padding-normal);
   text-align: center;
-  border-top: 1px solid #cccccc;
 }
 
 /* Useful classes */
@@ -463,9 +489,14 @@ section h1 {
   font-family: var(--font-h);
 }
 
-section.hero h1 {
+section.hero h1,
+section.about h1 {
   color: var(--color-light);
   font-weight: 900;
+}
+
+section.about h1 {
+  color: black;
 }
 
 section.hero p {
@@ -484,11 +515,35 @@ h2 {
   margin: 0 0 0.9rem;
 }
 
+.about h2 {
+  font-size: 1.250rem;
+  font-family: var(--font-p);
+  margin: 1rem 0;
+}
+
+.quote em {
+  font-size: 2rem;
+  line-height: 1.5;
+  font-family: 'Playfair Display', serif;
+}
+
 section p,
 .blog-card div p {
   font-size: var(--fontsize-normal);
   font-family: var(--font-p);
   line-height: 1.7;
+}
+
+p+p {
+  margin: 1rem 0 0 0;
+}
+
+em {
+  font-style: italic;
+}
+
+section.light {
+  background-color: var(--color-bg2);
 }
 
 section:not(.light) p {
@@ -650,6 +705,8 @@ a div.card:hover {
   main div.image {
     width: 280px;
   }
+
+
 }
 
 @media all and (min-width: 768px) {
@@ -685,13 +742,18 @@ a div.card:hover {
     padding: 2rem 1rem;
   }
 
+  .about div {
+    padding: 5.875rem 2rem 2rem 2rem;
+  }
+
   section.light div.flex,
   section.light a {
     grid-column: 2 / 12;
   }
 
-  section.light .card {
+  section .card {
     margin: 0;
+    grid-template-columns: 40px 3fr;
   }
 
   .books .hungergames {
@@ -773,8 +835,22 @@ a div.card:hover {
     grid-template-rows: 1fr 1fr 1fr;
   }
 
+  section.light.about {
+    padding: 0;
+  }
+
+  section.about picture {
+    grid-column: 1 / 7;
+    min-height: 50%;
+  }
+
   main div.image {
     max-width: 370px;
+  }
+
+  .about img {
+    max-height: 100%;
+    height: 100%;
   }
 
   a.button {
@@ -799,6 +875,10 @@ a div.card:hover {
   .blog-card div p {
     font-size: var(--fontsize-tablet);
   }
+
+  .light p {
+    grid-column: 4/10;
+  }
 }
 
 
@@ -812,12 +892,7 @@ a div.card:hover {
     grid-row: 3 / 5;
   }
 
-  .blog div img,
-  .blog div picture {
-    height: 355px;
-    grid-column: 1 / span 12;
-    grid-row: 1/4
-  }
+
 
   .blog>div.title:first-child {
     grid-column: 2/12;
@@ -837,7 +912,7 @@ a div.card:hover {
   }
 }
 
-@media all and (min-width: 1024px) {
+@media all and (min-width: 1200px) {
   .wrapper {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -877,6 +952,12 @@ a div.card:hover {
     background: white;
     justify-content: space-around;
   }
+
+  .about img {
+    object-fit: cover;
+    height: 100%;
+  }
+
 
   .filter {
     background-color: var(--color-default);
