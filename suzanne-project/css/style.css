@@ -361,10 +361,6 @@ section .card {
   grid-gap: 1rem;
 }
 
-/* section .card img {
-  max-height: 32px;
-} */
-
 section .card div div {
   display: flex;
   justify-content: space-between;
@@ -814,7 +810,7 @@ a div.card:hover {
   .blog div img,
   .blog div picture {
     height: 355px;
-    grid-column: 1 / span 12;
+    grid-column: 1 / span 11;
     grid-row: 1/4
   }
 
@@ -883,7 +879,7 @@ a div.card:hover {
 }
 
 
-@media all and (min-width: 960px) {
+@media all and (min-width: 1024px) {
   section.blog {
     padding-bottom: 3rem;
   }
@@ -892,8 +888,6 @@ a div.card:hover {
     grid-column: 2/12;
     grid-row: 3 / 5;
   }
-
-
 
   .blog>div.title:first-child {
     grid-column: 2/12;
@@ -911,9 +905,7 @@ a div.card:hover {
   h2 {
     font-size: 2.5rem;
   }
-}
 
-@media all and (min-width: 1200px) {
   .wrapper {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -993,8 +985,6 @@ a div.card:hover {
     align-self: flex-end;
   }
 
-
-
   .filter a.button {
     border: 2px solid black;
     position: initial;
@@ -1005,7 +995,6 @@ a div.card:hover {
   .filter a.button i {
     margin-right: 0.7rem;
   }
-
 
   .filter input {
     border: 2px solid black;
@@ -1059,6 +1048,11 @@ a div.card:hover {
 
   .light .flex {
     justify-content: center;
+  }
+
+  .blog div img,
+  .blog div picture {
+    grid-column: 1 / span 12;
   }
 
   section.hero div:not(.image) {
