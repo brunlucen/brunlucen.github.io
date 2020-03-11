@@ -38,6 +38,7 @@ by Bruno Lucena
   --mobile-padding: 0 1rem;
   --tablet-padding: 0 2.5rem;
   --padding-grid-top: 1.5rem 0;
+  --padding-grid-bottom: 0 0 1.5rem;
   --shadow-normal: 0 0 15px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -312,7 +313,7 @@ section div.image img:hover {
   transition: all 0.3s ease-in-out;
 }
 
-section.about:nth-child(1) {
+section:nth-child(1) {
   padding-top: 4.375rem;
 }
 
@@ -409,7 +410,7 @@ section.blog {
 
 .blog>div:not(:nth-child(1)) {
   position: relative;
-  padding: var(--padding-grid-top);
+  padding: var(--padding-grid-bottom);
   display: grid;
   row-gap: 3.5rem;
   grid-template-columns: repeat(12, 1fr);
@@ -813,7 +814,7 @@ a div.card:hover {
   .blog div img,
   .blog div picture {
     height: 355px;
-    grid-column: 1 / span 11;
+    grid-column: 1 / span 12;
     grid-row: 1/4
   }
 
