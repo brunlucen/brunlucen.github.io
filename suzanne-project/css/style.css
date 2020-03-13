@@ -281,7 +281,7 @@ div.social i {
 .about img {
   object-fit: cover;
   object-position: top;
-  max-width: 720px;
+  max-width: 768px;
   max-height: 65vh;
 }
 
@@ -893,7 +893,7 @@ a div.card:hover {
       /* The image - Tablet Version */
       url(../img/responsive/katpeeta-960_x_539.jpg);
     background-size: cover;
-    background-position: auto;
+    background-position: inherit;
     background-repeat: no-repeat;
   }
 
