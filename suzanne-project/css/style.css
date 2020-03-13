@@ -2,9 +2,6 @@
 Suzanne Collins website
 by Bruno Lucena
 */
-.color {
-  color: lightgreen;
-}
 
 /* GLOBAL SETTINGS */
 /* I went crazy with this, it's an awesome tool */
@@ -294,6 +291,20 @@ header nav img {
   grid-column: 1 / span 12;
 }
 
+section:first-child {
+  padding-top: 4rem;
+}
+
+#hg section:first-child {
+  background: linear-gradient(360deg, rgba(0, 0, 0, 0.6)15%, rgba(0, 0, 0, 0) 25%),
+    /* The image - Mobile Version */
+    url("../img/responsive/hungergames_hero-480_x_961.png");
+  background-color: black;
+  background-position: top center;
+  background-size: 80%;
+  background-repeat: no-repeat;
+}
+
 /* Start of main content */
 section img {
   width: 100%;
@@ -305,25 +316,26 @@ main div.image {
 }
 
 section div.image img {
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 section div.image img:hover {
-  transform: scale3d(1.1, 1.1, 0.5);
-  transition: all 0.3s ease-in-out;
-}
-
-section:nth-child(1) {
-  padding-top: 4.375rem;
+  transform: scale3d(1.05, 1.05, 0.5);
+  transition: all 0.2s ease-in-out;
 }
 
 .hero {
   height: 100vh;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   flex-direction: column;
   text-align: center;
+}
+
+#hg .hero {
+  justify-content: flex-end;
+  display: flex;
 }
 
 .gradient {
@@ -349,6 +361,32 @@ section:nth-child(1) {
   flex-direction: column;
   max-width: 60%;
   margin: auto;
+}
+
+.grid-book {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 1rem;
+  text-align: center;
+  grid-column: 1/13;
+}
+
+.grid-book li {
+  width: 75%;
+  margin: 0 auto;
+}
+
+.grid-book li img {
+  box-shadow: 8px 10px 20px 0px rgba(0, 0, 0, 0.15);
+  margin: 1rem 0;
+}
+
+.grid-book li:nth-child(odd) {
+  grid-column: 1/7;
+}
+
+.grid-book li:nth-child(even) {
+  grid-column: 7/13;
 }
 
 section .card {
@@ -388,6 +426,10 @@ section.books {
   width: 100%;
 }
 
+section.characters {
+  padding: 0;
+}
+
 .books .hungergames {
   background:
     /* The gradient as it is shown on the XD */
@@ -397,6 +439,30 @@ section.books {
     url(../img/responsive/katniss_opt-320_x_384.png);
   background-size: 85%;
   background-position: center top;
+  background-repeat: no-repeat;
+}
+
+.books .hungergames-insider {
+  background:
+    /* The gradient as it is shown on the XD */
+    linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 15%),
+    linear-gradient(360deg, rgba(0, 0, 0, 1)25%, rgba(0, 0, 0, 0) 75%),
+    /* The image - Mobile Version */
+    url(../img/responsive/hungergames_hero-480_x_961.png);
+  background-size: 100%;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+.books .hungergame-insider-alt {
+  background:
+    /* The gradient as it is shown on the XD */
+    linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 15%),
+    linear-gradient(360deg, rgba(0, 0, 0, 1)25%, rgba(0, 0, 0, 0) 75%),
+    /* The image - Mobile Version */
+    url(../img/responsive/Hunger-Games-Mockingjay-iPad-eReader-Kindle-Tablet-Cover-5.jpg);
+  background-size: 100%;
+  background-position: center center;
   background-repeat: no-repeat;
 }
 
@@ -417,6 +483,10 @@ section.blog {
   padding: 3rem 2rem 2rem;
 }
 
+.characters .title {
+  padding: 3rem 2rem 0;
+}
+
 .blog div img,
 .blog div picture {
   object-fit: cover;
@@ -432,12 +502,11 @@ section.blog {
   grid-column: 2/12;
   grid-row: 3 / 5;
   margin: 0;
-  box-shadow: var(--shadow-normal);
   transition: all 0.3s ease-in-out;
 }
 
 .blog-card:hover {
-  transform: scale3d(1.1, 1.1, 1.1);
+  box-shadow: var(--shadow-normal);
   transition: all 0.3s ease-in-out;
 }
 
@@ -461,7 +530,12 @@ section.blog {
   padding: 0 2rem;
 }
 
+main>section:last-child {
+  padding-bottom: 3rem;
+}
+
 footer {
+  border-top: 1px solid #cccccc;
   padding: var(--padding-normal);
   text-align: center;
 }
@@ -480,16 +554,25 @@ footer {
   margin: 0 0.5rem;
 }
 
+.justify-center {
+  grid-column: 1/13;
+  justify-content: center;
+  text-align: center;
+}
+
 /* Typography */
 section h1 {
   font-size: var(--fontsize-big);
-  font-family: var(--font-h);
 }
 
 section.hero h1,
 section.about h1 {
   color: var(--color-light);
   font-weight: 900;
+}
+
+#hg section.hero h1 {
+  margin: 0 0 3rem;
 }
 
 section.about h1 {
@@ -500,8 +583,13 @@ section.hero p {
   font-size: var(--fontsize-normal);
 }
 
-.blog h1 {
+.blog h1,
+.characters h1 {
   font-weight: 300;
+}
+
+main section.characters p {
+  color: black;
 }
 
 h2 {
@@ -519,9 +607,15 @@ h2 {
 }
 
 .quote em {
-  font-size: 2rem;
+  font-size: 1.25rem;
   line-height: 1.5;
   font-family: 'Playfair Display', serif;
+}
+
+.grid-book h6,
+.scroll-grid h6 {
+  font-weight: 800;
+  font-size: var(--fontsize-sm);
 }
 
 section p,
@@ -583,9 +677,47 @@ section.dark {
 }
 
 .title h1 small {
-  font-size: 60%;
   display: block;
   line-height: 1.4;
+}
+
+small {
+  font-size: 75%;
+}
+
+.scroll-wrapper {
+  width: 100%;
+  padding: 0;
+}
+
+.scroll-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  margin: 1em 0 0;
+  padding: 0 2rem;
+  justify-content: space-between;
+  flex-direction: row;
+  width: auto;
+  text-align: center;
+}
+
+.scroll-grid li {
+  border: none;
+  width: 85%;
+  height: auto;
+  margin: 1rem 0;
+  background: transparent;
+  padding-right: 2rem;
+}
+
+.scroll-grid li img {
+  border-radius: 50%;
+  margin: 0 0 1rem 0;
+  width: 6rem;
+  height: 6rem;
+  border: 1px solid #ccc;
+  object-fit: cover;
 }
 
 footer p {
@@ -702,11 +834,10 @@ a div.card:hover {
   main div.image {
     width: 280px;
   }
-
-
 }
 
 @media all and (min-width: 768px) {
+
   header {
     display: flex;
     justify-content: left;
@@ -729,9 +860,64 @@ a div.card:hover {
     margin: 0 1em;
   }
 
+
+  #hg section:first-child {
+    background: linear-gradient(360deg, rgba(0, 0, 0, 0.6)15%, rgba(0, 0, 0, 0) 35%),
+      /* The image - Mobile Version */
+      url("../img/responsive/hungergames_hero-768_x_1539.png");
+    ;
+    background-color: black;
+    background-position: top center;
+    background-size: 70%;
+    background-repeat: no-repeat;
+  }
+
+  .books .hungergames-insider {
+    background:
+      /* The gradient as it is shown on the XD */
+      linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 15%),
+      linear-gradient(360deg, rgba(0, 0, 0, 1)25%, rgba(0, 0, 0, 0) 75%),
+      /* The image - Mobile Version */
+      url(../img/responsive/katpeeta-768_x_431.jpg);
+    background-size: cover;
+    background-position: auto;
+    background-repeat: no-repeat;
+  }
+
+  .books .hungergame-insider-alt {
+    background:
+      /* The gradient as it is shown on the XD */
+      linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 15%),
+      linear-gradient(360deg, rgba(0, 0, 0, 1)25%, rgba(0, 0, 0, 0) 75%),
+      /* The image - Mobile Version */
+      url(../img/responsive/Hunger-Games-Mockingjay-iPad-eReader-Kindle-Tablet-Cover-5.jpg);
+    background-size: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+
+  .grid-book li:nth-child(odd) {
+    grid-column: 2/7;
+  }
+
+  .grid-book li:nth-child(even) {
+    grid-column: 7/12;
+  }
+
+  .justify-center {
+    grid-column: 3/11;
+  }
+
+  section.light:first-child,
+  section.hero {
+    padding: 5.875rem 2rem 2rem;
+  }
+
   .underland,
   .hungergames,
   .blog,
+  .hungergames-insider,
+  .hungergame-insider-alt,
   section.light {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -741,7 +927,13 @@ a div.card:hover {
 
   .about div {
     padding: 5.875rem 2rem 2rem 2rem;
+    grid-column: 7 / 13;
   }
+
+  .light.otherworks.white {
+    background-color: var(--color-bg2);
+  }
+
 
   section.light div.flex,
   section.light a {
@@ -776,11 +968,13 @@ a div.card:hover {
     background-position: center bottom;
   }
 
-  .hungergames div {
+  .hungergames div,
+  .hungergames-insider div {
     grid-column: 2 / 8;
   }
 
-  .underland div {
+  .underland div,
+  .hungergame-insider-alt div {
     padding: 0;
     grid-column: 6 /12;
   }
@@ -793,10 +987,6 @@ a div.card:hover {
   .otherworks div:nth-child(2) {
     padding: 0 2rem;
     grid-column: 7/12;
-  }
-
-  .white {
-    background-color: black;
   }
 
   .title {
@@ -839,6 +1029,9 @@ a div.card:hover {
   section.about picture {
     grid-column: 1 / 7;
     min-height: 50%;
+    height: 100vh;
+    position: sticky;
+    top: 0;
   }
 
   main div.image {
@@ -848,6 +1041,7 @@ a div.card:hover {
   .about img {
     max-height: 100%;
     height: 100%;
+    width: 100%;
   }
 
   a.button {
@@ -855,7 +1049,6 @@ a div.card:hover {
   }
 
   /* Typography */
-
   section h1 {
     font-size: var(--fontsize-huge);
   }
@@ -875,6 +1068,7 @@ a div.card:hover {
 
   .light p {
     grid-column: 4/10;
+    font-size: var(--fontsize-l);
   }
 }
 
@@ -905,6 +1099,29 @@ a div.card:hover {
   h2 {
     font-size: 2.5rem;
   }
+
+
+  .grid-book {
+    display: flex;
+    margin: 0 2rem 2rem;
+  }
+
+  .grid-book li {
+    margin: 0 2rem;
+  }
+
+  .scroll-grid {
+    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    flex-grow: 2;
+  }
+
+  section.characters {
+    display: flex;
+    padding: 2rem;
+  }
+
 
   .wrapper {
     display: grid;
@@ -1030,11 +1247,26 @@ a div.card:hover {
     font-size: var(--fontsize-huge);
   }
 
+  section.characters h1 {
+    font-size: var(--fontsize-big);
+  }
+
   .hero {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: 1fr;
     padding: 1rem;
+  }
+
+  #hg section:first-child {
+    background: linear-gradient(360deg, rgba(0, 0, 0, 0.6)15%, rgba(0, 0, 0, 0) 35%),
+      /* The image - Mobile Version */
+      url("../img/responsive/hungergames_hero-960_x_1923.png");
+    ;
+    background-color: black;
+    background-position: center 15%;
+    background-size: 45%;
+    background-repeat: no-repeat;
   }
 
   main div.image {
@@ -1105,5 +1337,16 @@ a div.card:hover {
 
   a.button {
     font-size: var(--fontsize-normal);
+  }
+}
+
+@media {
+  .books .hungergames-insider {
+    background:
+      /* The gradient as it is shown on the XD */
+      linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 15%),
+      linear-gradient(360deg, rgba(0, 0, 0, 1)25%, rgba(0, 0, 0, 0) 75%),
+      /* The image - Mobile Version */
+      url(../img/responsive/katpeeta-1280_x_719.jpg);
   }
 }
