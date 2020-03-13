@@ -942,7 +942,6 @@ a div.card:hover {
     background-color: var(--color-bg2);
   }
 
-
   section.light div.flex,
   section.light a {
     grid-column: 2 / 12;
