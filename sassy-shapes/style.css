@@ -1,0 +1,131 @@
+/**********************************************
+ * STARTER CODE
+ **********************************************/
+.shapes {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[5];
+      grid-template-columns: repeat(5, 1fr);
+  grid-gap: 50px;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.circle-red, .circle-blue, .circle-green, .circle-purple, .circle-orange, .square-red, .square-blue, .square-green, .square-purple, .square-orange {
+  width: 100px;
+  height: 100px;
+  background-color: black;
+}
+
+.circle-red, .circle-blue, .circle-green, .circle-purple, .circle-orange {
+  border-radius: 50%;
+  background-color: black;
+}
+
+.pentagon-red, .pentagon-blue, .pentagon-green, .pentagon-purple, .pentagon-orange {
+  position: relative;
+  width: 54px;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  border-width: 50px 18px 0;
+  border-style: solid;
+  border-color: black transparent;
+}
+
+.pentagon-red::before, .pentagon-blue::before, .pentagon-green::before, .pentagon-purple::before, .pentagon-orange::before {
+  content: "";
+  position: absolute;
+  height: 0;
+  width: 0;
+  top: -85px;
+  left: -18px;
+  border-width: 0 45px 35px;
+  border-style: solid;
+  border-color: transparent transparent black;
+}
+
+/**********************************************
+ * YOUR CODE BELOW
+ **********************************************/
+.square-red {
+  background-color: red;
+}
+
+.square-blue {
+  background-color: blue;
+}
+
+.square-green {
+  background-color: green;
+}
+
+.square-purple {
+  background-color: purple;
+}
+
+.square-orange {
+  background-color: orange;
+}
+
+.circle-red {
+  background-color: red;
+}
+
+.circle-blue {
+  background-color: blue;
+}
+
+.circle-green {
+  background-color: green;
+}
+
+.circle-purple {
+  background-color: purple;
+}
+
+.circle-orange {
+  background-color: orange;
+}
+
+.pentagon-red {
+  background-color: red transparent;
+}
+
+.pentagon-red::before {
+  background-color: transparent transparent red;
+}
+
+.pentagon-blue {
+  background-color: blue transparent;
+}
+
+.pentagon-blue::before {
+  background-color: transparent transparent blue;
+}
+
+.pentagon-green {
+  background-color: green transparent;
+}
+
+.pentagon-green::before {
+  background-color: transparent transparent green;
+}
+
+.pentagon-purple {
+  background-color: purple transparent;
+}
+
+.pentagon-purple::before {
+  background-color: transparent transparent purple;
+}
+
+.pentagon-orange {
+  background-color: orange transparent;
+}
+
+.pentagon-orange::before {
+  background-color: transparent transparent orange;
+}
+/*# sourceMappingURL=style.css.map */
