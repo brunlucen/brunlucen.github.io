@@ -69,10 +69,10 @@ pentagon;
 
   @else if $shape==pentagon {
     @extend %pentagon;
-    background-color: $color transparent;
+    border-color: $color transparent;
 
     &::before {
-      background-color: transparent transparent $color;
+      border-color: transparent transparent $color;
     }
   }
 }

@@ -90,42 +90,42 @@
 }
 
 .pentagon-red {
-  background-color: red transparent;
+  border-color: red transparent;
 }
 
 .pentagon-red::before {
-  background-color: transparent transparent red;
+  border-color: transparent transparent red;
 }
 
 .pentagon-blue {
-  background-color: blue transparent;
+  border-color: blue transparent;
 }
 
 .pentagon-blue::before {
-  background-color: transparent transparent blue;
+  border-color: transparent transparent blue;
 }
 
 .pentagon-green {
-  background-color: green transparent;
+  border-color: green transparent;
 }
 
 .pentagon-green::before {
-  background-color: transparent transparent green;
+  border-color: transparent transparent green;
 }
 
 .pentagon-purple {
-  background-color: purple transparent;
+  border-color: purple transparent;
 }
 
 .pentagon-purple::before {
-  background-color: transparent transparent purple;
+  border-color: transparent transparent purple;
 }
 
 .pentagon-orange {
-  background-color: orange transparent;
+  border-color: orange transparent;
 }
 
 .pentagon-orange::before {
-  background-color: transparent transparent orange;
+  border-color: transparent transparent orange;
 }
 /*# sourceMappingURL=style.css.map */
