@@ -1,0 +1,296 @@
+// Base Layout
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  font-family: $ubuntu;
+}
+
+body {
+  font-size: 100%;
+}
+
+// Sections
+.container {
+  padding: 3rem 2rem;
+  margin: auto;
+
+  @media all and (min-width: $tablet) {
+    max-width: $tablet;
+  }
+
+  @media all and (min-width: $desktop) {
+    max-width: $desktop;
+  }
+}
+
+section.hero {
+  @extend %flex-center;
+  flex-direction: column;
+  background-color: $dark-background;
+  min-height: 101vh;
+
+  & .container {
+    padding: 1rem 2rem;
+  }
+
+}
+
+section.projects {
+  background-color: #f2f2f2;
+
+  .container {
+    padding: 4rem 2rem 3rem;
+    grid-gap: 3rem;
+    row-gap: 0;
+
+    div.title {
+      grid-column: 1 / 3;
+    }
+
+    @media all and (min-width: $tablet) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media all and (min-width: $desktop) {
+      grid-gap: 3rem;
+      row-gap: 0;
+    }
+  }
+}
+
+section.articles {
+  max-width: 560px;
+  margin: auto;
+
+  .container {
+    padding: 3rem 2rem 0rem;
+  }
+}
+
+section.internal {
+  @extend %flex-center;
+  align-items: flex-end;
+  min-height: 40vh;
+
+  .container {
+    width: 100%;
+    padding: 5rem 2rem 0;
+  }
+}
+
+section.grid {
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+
+    h2 {
+      padding: 1rem 0 2rem;
+      text-align: left;
+    }
+
+    .project-comments {
+      grid-column: 1/4;
+    }
+
+    @media all and (min-width: $tablet) {
+      grid-gap: 3rem;
+      grid-template-columns: 1fr 1fr 1fr;
+
+      .project-comments {
+        grid-column: 1/4;
+      }
+    }
+
+    @media all and (min-width: $desktop) {
+      grid-template-columns: 1fr 1fr 1fr;
+      row-gap: 3rem;
+
+      .project-comments {
+        grid-column: 3/4;
+      }
+    }
+  }
+
+  picture {
+    &.portfolio-pic {
+      grid-column: 1 / 4;
+    }
+
+    &.pic-1 {
+      grid-row: 3;
+    }
+
+    &.pic-2 {
+      grid-row: 3;
+    }
+
+    &.pic-3 {
+      display: none;
+    }
+
+    &.pic-4 {
+      grid-row: 1;
+      grid-column: 1 / 4;
+
+      img {
+        max-height: 350px;
+      }
+    }
+
+    @media all and (min-width: $tablet) {
+      &.pic-3 {
+        display: initial;
+        grid-row: 3;
+      }
+    }
+
+    @media all and (min-width: $desktop) {
+      &.pic-4 {
+        grid-column: 2/4;
+        grid-row: 3;
+      }
+
+      &.pic-1 {
+        grid-row: 1;
+      }
+
+      &.pic-2 {
+        grid-row: 1;
+      }
+
+      &.pic-3 {
+        grid-row: 1;
+      }
+
+      &.portfolio-pic {
+        grid-column: 1/3;
+      }
+    }
+  }
+}
+
+img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+
+  @media all and (min-width: $tablet) {
+    max-height: 275px;
+  }
+
+  @media all and (min-width: $desktop) {
+    max-height: 350px;
+  }
+}
+
+div.about {
+  padding: 2rem 0;
+  grid-column: 1/3;
+
+  @media all and (min-width: $tablet) {
+    grid-column: 1/4;
+  }
+
+  @media all and (min-width: $desktop) {
+    grid-column: 2/4;
+  }
+}
+
+
+section.testimonial {
+  background: linear-gradient(-45deg, whitesmoke, #f2f2f2, white, #e4e4e4);
+  background-size: 400% 400%;
+  animation: Gradient 15s ease infinite;
+  padding: 3rem;
+  @extend %flex-center;
+  text-align: center;
+
+  h2 {
+    font-style: oblique;
+    padding: 1rem;
+    font-size: 1.6rem;
+    line-height: 1.8;
+  }
+
+  p {
+    color: $light-text;
+  }
+}
+
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%
+  }
+
+  50% {
+    background-position: 100% 50%
+  }
+
+  100% {
+    background-position: 0% 50%
+  }
+}
+
+.avatar {
+  img {
+    width: 64px;
+    border-radius: 50%;
+  }
+}
+
+// Call to Action
+section.call-to-action {
+  @extend %flex-center;
+  flex-direction: column;
+  text-align: center;
+  margin: 2rem 0 0 0;
+  padding: 3rem;
+  height: 75vh;
+
+  &.cs {
+    background-image: url(../img/projects/01-cs.png);
+    @extend %bg;
+  }
+
+  &.mysales {
+    background-image:
+      url(../img/projects/mysales_fundo_app.png);
+    @extend %bg;
+    background-size: cover;
+  }
+
+  &.shopify {
+    background-image:
+      url(../img/projects/mockup_start.jpg);
+    @extend %bg;
+  }
+
+  &.suzanne {
+    background-image: url(../img/projects/suzanne.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  div {
+    background: white;
+  }
+}
+
+// Footer
+footer {
+  padding: 2rem;
+  text-align: center;
+  background-color: whitesmoke;
+
+  .container {
+    padding: 0;
+  }
+}

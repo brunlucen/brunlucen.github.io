@@ -1,0 +1,570 @@
+// Here you'll find the components of the site
+
+// Active status
+.active {
+  color: $link;
+}
+
+.active-black {
+  color: white;
+  -webkit-text-fill-color: black;
+  /* Base color */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+}
+
+// Menu
+header {
+  @include theme-colors($dark-theme: true);
+
+  &.scrolled,
+  &.light {
+    @include theme-colors($dark-theme: false);
+  }
+
+  @include bg-colors($dark-bg: false);
+
+  &.scrolled,
+  &.light {
+    @include bg-colors($dark-bg: true);
+  }
+
+  width: 100%;
+  z-index: 20;
+  padding: 1.5rem 2rem;
+  position: fixed;
+  display: grid;
+  grid-template-areas: 'logo logo hamb'
+  'menu menu menu';
+  transition: 0.3s background-color ease-in-out;
+}
+
+a.logo {
+  @extend %flex-left;
+  text-decoration: none;
+  @include theme-colors($dark-theme: true);
+  z-index: 200;
+  width: fit-content;
+
+  .scrolled &,
+  header.light & {
+    @include theme-colors($dark-theme: false);
+  }
+
+  span {
+    margin-right: 0.3rem
+  }
+
+  transition: 0.3s all ease-in-out;
+}
+
+// Mobile menu
+
+header nav {
+  grid-area: menu;
+  display: flex;
+  top: 0;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+  background-color: white;
+
+  img {
+    width: 48px;
+    height: 48px;
+    margin: 1.5rem 0;
+    border-radius: 50%;
+  }
+
+  @media all and (min-width: $desktop) {
+    height: auto;
+
+    img {
+      display: none;
+    }
+  }
+
+}
+
+.fill {
+  object-fit: cover;
+}
+
+nav ul li a {
+  font-family: $libre;
+  display: block;
+  width: fit-content;
+  margin: 1.5rem 0;
+  font-size: 3em;
+  text-decoration: none;
+  text-align: left;
+  transition: all 0.3s ease-in-out;
+  color: $light-text;
+
+  @media all and (min-width: $desktop) {
+    @include theme-colors($dark-theme: true);
+
+    .scrolled &,
+    .light & {
+      @include theme-colors($dark-theme: false);
+    }
+
+    font-family: $ubuntu;
+    font-size: 1.2em;
+    padding: 0 2rem;
+  }
+}
+
+
+header nav {
+  opacity: 0;
+  max-height: 0;
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  flex-direction: column;
+  @extend %flex-center;
+  transition: 0.3s all;
+
+  @media all and (min-width: $desktop) {
+    opacity: 1;
+    max-height: initial;
+    background-color: transparent;
+  }
+}
+
+header nav ul {
+  margin-top: 1em;
+  padding: 3rem;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+
+  @media all and (min-width: $desktop) {
+    display: flex;
+    align-items: unset;
+    margin: 0;
+    justify-content: center;
+    padding: 0;
+  }
+}
+
+nav ul li a:hover {
+  color: $link;
+}
+
+nav ul li a.active {
+  color: $link;
+}
+
+header div.social {
+  grid-area: social;
+}
+
+div.social {
+  display: flex;
+  align-content: center;
+  width: 100%;
+
+  i {
+    padding: 0 1.5em 0 0;
+    font-size: 1.3rem;
+  }
+
+  :hover {
+    color: $link;
+    background-image: none;
+  }
+
+  @media all and (min-width: $desktop) {
+    nav li & {
+      position: fixed;
+      right: 0;
+      width: fit-content;
+    }
+
+    a {
+      padding: 0;
+    }
+
+    // a:nth-child(1) {
+    //   border-left: 1px solid #ccc;
+    //   padding-left: 2rem;
+    // }
+  }
+}
+
+/* Menu Icon  */
+
+header .menu-icon {
+  cursor: pointer;
+  position: relative;
+  justify-self: right;
+  align-self: center;
+  grid-area: hamb;
+
+  @media all and (min-width: $desktop) {
+    display: none;
+  }
+}
+
+.hamburguer {
+  @include bg-colors($dark-bg: true);
+
+  header.scrolled &,
+  header.light & {
+    @include bg-colors($dark-bg: false);
+  }
+
+  display: block;
+  height: 2px;
+  position: relative;
+  transition: background .2s ease-out;
+  width: 20px;
+  z-index: 3;
+}
+
+.hamburguer:before,
+.hamburguer:after {
+  @include bg-colors($dark-bg: true);
+
+  header.scrolled &,
+  header.light & {
+    @include bg-colors($dark-bg: false);
+  }
+
+  content: '';
+  display: block;
+  height: 2px;
+  position: absolute;
+  transition: all .2s ease-out;
+  width: 100%;
+}
+
+header .menu-icon .hamburguer:before {
+  top: 8px;
+  height: 2px;
+  width: 65%;
+}
+
+header .menu-icon .hamburguer:after {
+  top: -8px;
+  height: 2px;
+}
+
+/* Menu Hamburguer button */
+header .menu-btn {
+  display: none;
+}
+
+header .menu-btn:checked~nav {
+  opacity: 1;
+  max-height: 100vh;
+}
+
+header .menu-btn:checked~.menu-icon .hamburguer {
+  background: transparent;
+}
+
+header .menu-btn:checked~.menu-icon .hamburguer:before {
+  transform: rotate(-45deg);
+  width: 100%;
+  background: black;
+}
+
+header .menu-btn:checked~.menu-icon .hamburguer:after {
+  transform: rotate(45deg);
+  background: black;
+}
+
+header .menu-btn:checked~.menu-icon .hamburguer:before,
+header .menu-btn:checked~.menu-icon .hamburguer:after {
+  top: 0;
+}
+
+// Scroll button
+
+.btn-scroll {
+  bottom: 1em;
+  text-align: left;
+  width: 1.5rem;
+  z-index: 5;
+  position: absolute;
+  bottom: 1rem;
+
+  a {
+    display: block;
+    text-align: left;
+    width: 100%;
+    position: relative;
+    transition: 0.3s ease-in-out;
+    padding-top: 1em;
+    color: #ffffff;
+    text-decoration: none;
+  }
+}
+
+.btn-scroll a::after {
+  content: "";
+  display: block;
+  width: 2px;
+  height: 3em;
+  position: relative;
+  background-color: #ffffff;
+  margin: 1em auto;
+}
+
+.btn-scroll i {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  line-height: 0;
+  margin: auto;
+  width: 100%;
+  justify-content: center;
+}
+
+.btn-scroll a:hover {
+  transform: translate(0px, 1em);
+}
+
+
+// Project Card
+.project-card {
+  @extend %flex-center;
+  flex-direction: column;
+  margin: 3rem 0 0;
+
+  a & {
+    color: $light-text;
+    text-decoration: none;
+  }
+
+  h3 {
+    @extend %titles;
+
+    i {
+      font-size: small;
+    }
+  }
+
+  p {
+    @extend %subtitles;
+    height: 45px;
+  }
+
+  picture {
+    width: 100%;
+    margin: 1rem 0;
+    transform: translateY(0px);
+    transition: all 0.3s;
+
+    :hover {
+      transform: translateY(-10px);
+      transition: all 0.3s;
+      box-shadow: 8px 10px 15px 0px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  img {
+    width: 100%;
+    max-height: 200px;
+    border-radius: 0.3rem;
+    border: 1px solid lightgray;
+    transition: all 0.3s;
+
+    @media all and (min-width: $tablet) {
+      max-height: 300px;
+    }
+
+    @media all and (min-width: $desktop) {
+      max-height: 300px;
+    }
+  }
+
+  @media all and (min-width: $tablet) {
+    grid-column: 1/1;
+  }
+
+  @media all and (min-width: $desktop) {
+    grid-gap: 3rem;
+  }
+}
+
+.article-card {
+  margin: 3rem 0;
+
+  a.title {
+    color: $light-text;
+    text-decoration: none;
+  }
+
+  h3 {
+    @extend %titles;
+
+    i {
+      font-size: small;
+      margin: 0 0.5rem;
+    }
+  }
+
+  p {
+    @extend %subtitles;
+    margin-bottom: 1rem;
+  }
+
+  div {
+    span {
+      font-size: 13px;
+      ;
+    }
+  }
+}
+
+// Forms in the contact page
+
+form {
+  display: grid;
+  margin: 3rem 0;
+  background-color: white;
+  border-radius: 0.75em;
+
+  @media (min-width: $tablet) {
+    width: 100%;
+    margin: 2rem auto;
+  }
+
+  @media screen and (min-width: $desktop) {
+    font-size: 1.3rem;
+    margin: 3rem auto;
+    padding: 0;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+  }
+}
+
+form fieldset {
+  width: 100%;
+
+  margin: 0.5rem 0;
+}
+
+fieldset label {
+  width: 100%
+}
+
+fieldset input:not(#spam),
+fieldset textarea {
+  width: 100%;
+  padding: 0.6em;
+  border: 1px solid black;
+  margin-top: 0.3em;
+  transition: all 0.4s;
+  font-size: 1em;
+  background-color: white;
+}
+
+fieldset textarea {
+  height: 6em;
+  font-size: 1em;
+  font-family: Lato, Helvetica Neue, Helvetica, sans-serif;
+}
+
+fieldset input:not(#spam):hover,
+fieldset textarea:hover {
+  background-color: white;
+  border: 2px solid cornflowerblue;
+}
+
+input:focus {
+  background-color: white;
+}
+
+button {
+  margin-top: 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  background: $light-text;
+  border: 2px solid black;
+  padding: 0.5em 1em;
+  transition: all 0.4s;
+  width: 100%;
+  color: white;
+}
+
+button:hover {
+  background: white;
+  color: $link;
+  cursor: pointer;
+}
+
+button:active {
+  background: white;
+  border: 2px solid $link;
+  color: $link;
+  cursor: pointer
+}
+
+form fieldset.spam {
+  margin-bottom: 20px
+}
+
+/* MEDIA QUERY FOR TABLETS */
+@media (min-width: $tablet) {
+  form {
+    width: 100%;
+    margin: 2rem auto;
+  }
+}
+
+/* MEDIA QUERY FOR DESKTOP */
+@media screen and (min-width: $desktop) {
+  fieldset:nth-child(3) {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+
+  button {
+    width: fit-content;
+    padding: 0.7em 1em;
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+}
+
+// Projects
+
+.team {
+  @extend %flex-left;
+  align-items: center;
+
+  li & {
+    margin: 1rem 0;
+  }
+
+  img {
+    border-radius: 50%;
+    width: 100%;
+    max-width: 2.2rem;
+    margin-right: 0.7rem;
+  }
+
+  div {
+    margin-right: 0.7rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  h5 {
+    font-family: $ubuntu;
+  }
+
+  p {
+    font-size: 0.75rem;
+    margin: 0;
+  }
+}

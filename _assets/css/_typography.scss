@@ -1,0 +1,101 @@
+// Typography: Here you'll find all typography rules,
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: $libre;
+}
+
+p,
+p span {
+  font-family: $ubuntu;
+}
+
+// Headlines
+h1 {
+  font-size: $large;
+  line-height: 1.2;
+  margin: 1.5rem 0;
+  @include theme-colors($dark-theme: true);
+
+  .scrolled &,
+  .light & {
+    @include theme-colors($dark-theme: false);
+    font-size: $big;
+  }
+
+  @media all and (min-width: $tablet) {
+    font-size: 64px;
+  }
+
+  @media all and (min-width: $desktop) {
+    font-size: 64px;
+    width: 60%;
+  }
+}
+
+h2 {
+  font-size: $regular;
+  line-height: 1.2;
+}
+
+h3 {
+  @extend %titles;
+}
+
+h4 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-family: $ubuntu;
+  font-weight: 800;
+}
+
+h6 {
+  font-size: small;
+  font-weight: 500;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  @include theme-colors($dark-theme: true);
+
+  .scrolled &,
+  .light & {
+    @include theme-colors($dark-theme: false);
+  }
+
+  @media all and (min-width: $tablet) {
+    font-size: 1rem;
+  }
+
+  @media all and (min-width: $desktop) {
+    font-size: 1.1rem;
+  }
+
+  &.leading {
+
+    @media all and (min-width: $tablet) {
+      font-size: 1.25rem;
+    }
+
+    @media all and (min-width: $desktop) {
+      font-size: 1.25rem;
+      width: 50%;
+    }
+  }
+}
+
+// Links
+a {
+  color: $link;
+  text-decoration: none;
+  position: relative;
+}
+
+a:hover {
+  color: black;
+  transition: all 0.3s;
+}

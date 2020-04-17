@@ -1,0 +1,88 @@
+// Font placeholders
+$ubuntu: 'Ubuntu',
+sans-serif;
+$libre: 'Libre Baskerville',
+serif;
+
+// Color placeholders
+$light-background: white;
+$light-text: black;
+$dark-background: black;
+$dark-text: #d2e1dd;
+$hover: yellow;
+$link: cornflowerblue;
+
+// Size placeholders
+$large: 3.5rem;
+$big: 2.8rem;
+$regular: 2rem;
+$normal: 1.5rem;
+
+// Paddings and margins
+$padding-mobile: 2rem;
+
+// Useful
+%flex-left {
+  align-items: center;
+  justify-content: left;
+  display: flex;
+}
+
+%flex-center {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+%outline {
+  color: black;
+  /* Fall back color */
+  -webkit-text-fill-color: white;
+  /* Overriding color */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+
+%titles {
+  font-size: 22px;
+  line-height: 1.4;
+  margin: 0.5rem 0;
+}
+
+%subtitles {
+  color: $light-text;
+  margin: 0.5rem 0;
+  line-height: 1.4;
+  font-size: 0.9rem;
+}
+
+%bg {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+// Mixins for dark and light theme
+@mixin theme-colors($dark-theme: true) {
+  @if $dark-theme {
+    color: $dark-text;
+  }
+
+  @else {
+    color: $light-text;
+  }
+}
+
+@mixin bg-colors($dark-bg: true) {
+  @if $dark-bg {
+    background: $light-background;
+  }
+
+  @else {
+    background: $dark-background;
+  }
+}
+
+// Media Queries
+$tablet: 768px;
+$desktop: 1200px;

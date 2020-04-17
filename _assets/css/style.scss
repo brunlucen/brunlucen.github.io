@@ -1,0 +1,27 @@
+/* Welcome to my realm!!!!
+██████╗ ██████╗ ██╗   ██╗███╗   ██╗ ██████╗ ██╗     ██╗   ██╗ ██████╗███████╗███╗   ██╗ █████╗ 
+██╔══██╗██╔══██╗██║   ██║████╗  ██║██╔═══██╗██║     ██║   ██║██╔════╝██╔════╝████╗  ██║██╔══██╗
+██████╔╝██████╔╝██║   ██║██╔██╗ ██║██║   ██║██║     ██║   ██║██║     █████╗  ██╔██╗ ██║███████║
+██╔══██╗██╔══██╗██║   ██║██║╚██╗██║██║   ██║██║     ██║   ██║██║     ██╔══╝  ██║╚██╗██║██╔══██║
+██████╔╝██║  ██║╚██████╔╝██║ ╚████║╚██████╔╝███████╗╚██████╔╝╚██████╗███████╗██║ ╚████║██║  ██║
+╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚══════╝ ╚═════╝  ╚═════╝╚══════╝╚═╝  ╚═══╝╚═╝  ╚═╝
+Hey there! Since you're so curious, let me tell you a little bit about myself:
+1. I love coding Sass but I come from a graphic-design background and have been studying hard for the past year.
+2. I'm absolutely passionate about delivering meaningful products to people.
+3. One of my goals in 2020 is to code JS confidently.
+4. I'm a big fan of Kingdom Come Deliverance and Crusader Kings Series! Yay!
+5. Feel free to drop a line. Add me to your network via linkedin. (https://www.linkedin.com/in/brunolucena/)
+*/
+
+//Reset - Using an external CDN for the reset
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+// Fonts - Using google fonts
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Ubuntu:ital,wght@0,400;0,700;1,300&display=swap');
+
+// Global
+@import "reset";
+@import "variables";
+@import "base";
+@import "components";
+@import "typography";

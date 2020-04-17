@@ -5,36 +5,181 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Bruno Lucena's github den</title>
-  <style>
-    body {
-      background-color: whitesmoke
-    }
+  <title>Bruno Lucena | UX Designer, Coder and Maker</title>
+  <!--Favicon-->
+  <link rel="icon" href="_assets/img/favicon.ico" type="image/x-icon">
+  <!--SEO-->
+  <meta name=" keywords" content="Designer, UX, Professional, Strategy, Business, HTML, CSS, Coding, Sass">
+  <meta name="author" content="Bruno Lucena">
+  <!-- CSS font -->
+  <link rel="stylesheet" href="_assets/css/style.css">
+  <!-- FontAwesome -->
+  <script src="https://kit.fontawesome.com/ea152fc1df.js" crossorigin="anonymous"></script>
 
-    body div {
-      margin: auto;
-      max-width: 480px;
-      padding: 2em;
-      border-radius: 8px;
-      background-color: white;
-    }
-  </style>
 </head>
 
 <body>
-  <div>
-    <h1>Bruno Lucena</h1>
-    <p>20W_MTM6201_030 Responsive Web Design II</p>
-    <p class="small">luce0014@algonquinlive.com</p>
-    <hr>
-    <h3>Github username:</h3>
-    <p>brunlucen</p>
-    <hr>
-    <h3>Interesting thing I did this summer:</h3>
-    <p>Started playing <a href="https://www.kingdomcomerpg.com/" target="_blank">Kingdom Come
-        Deliverance</a>. I'm already totally addicted. But, truth be told, my son did something way more interesting, he
-      learned how to say "Poop". It was awesome!</p>
-  </div>
+  <header>
+    <!-- Logo -->
+    <a href="index.html" class="logo">
+      <span> &#60/&#62 </span>
+      <span> <strong> brunolucena</strong></span>
+    </a>
+    <!-- Mobile Hamburguer button -->
+    <input class="menu-btn" type="checkbox" id="menu-btn" />
+    <label class="menu-icon" for="menu-btn">
+      <span class="hamburguer"></span>
+    </label>
+    <!-- Navigation -->
+    <nav>
+      <ul class="menu">
+        <li>
+          <picture>
+            <img class="fill" src="_assets/img/about/bruno.jpg" alt="Bruno's picture">
+          </picture>
+        </li>
+        <li><a href="index.html" class="active">Projects</a></li>
+        <li><a href="about.html">Bio</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li>
+          <div class="social">
+            <a href="//dribbble.com/brunolucena"><i class="fab fa-dribbble"></i></a>
+            <a href="//www.linkedin.com/in/brunolucena/"><i class="fab fa-linkedin"></i></a>
+            <a href="//github.com/brunlucen/"><i class="fab fa-github"></i></a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1> <span class="active-black">Designer</span>, Strategist & Coder</h1>
+        <p class="leading">Hi, my name is Bruno Lucena. I'm absolutely passionate about shaping products and services
+          through
+          collaboration and human-centricity. Feel free to <a href="contact.html">drop a line</a>.</p>
+        <!-- <a href="#projects"><i class="fas fa-long-arrow-alt-down"></i></a> -->
+        <div class="btn-scroll">
+          <a href="#projects">
+            <i class="fas fa-1x fa-caret-down" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+    <section id="projects" class="projects">
+      <div class="container">
+        <div class="title">
+          <h2>Projects</h2>
+        </div>
+        <a href=" project-cs.html">
+          <div class="project-card">
+            <h3>Customer Success and the logic of experience
+            </h3>
+            <p>For two months, I collaborated on the conception and creation of a customer success process.
+            </p>
+            <picture>
+              <img src="_assets/img/projects/capa.png" alt="Customer Success project">
+            </picture>
+          </div>
+        </a>
+        <a href="project-mysales.html">
+          <div class="project-card">
+            <h3>Closing deals faster with behavior mapping</h3>
+            <p>Pitched and designed an app focused on assisting sales teams in consultive sales.
+            </p>
+            <picture>
+              <img src="_assets/img/projects/mysales_brunlucen.jpg" alt="MySales">
+            </picture>
+          </div>
+        </a>
+        <a href="project-suzanne.html">
+          <div class="project-card">
+            <h3>The process of Suzanne Collins site redesign</h3>
+            <p>Conceptualized and designed a content hub for Suzanne Collins fans</p>
+            <picture>
+              <img src="_assets/img/projects/suzanne.jpg" alt="MySales">
+            </picture>
+          </div>
+        </a>
+        <a href="project-shopify.html">
+          <div class="project-card">
+            <h3>Building a learning app for Shopify</h3>
+            <p>Iterated and improved the UX of one of Shopify's learning apps</p>
+            <picture>
+              <img src="_assets/img/projects/mockup_start.jpg" alt="Shopify Compass">
+            </picture>
+          </div>
+        </a>
+      </div>
+    </section>
+    <section class="articles">
+      <div class="container">
+        <div class="title">
+          <h2>Articles</h2>
+        </div>
+        <div class="article-card">
+          <a class="title" href="#medium.com-article-that-I-haven't-written-yet">
+            <h3>The challenges of working remotely<i class="fas fa-external-link-alt"></i></h3>
+          </a>
+          <p>A decade ago, most employers would've balked at the idea of employees regularly working from home. Today is
+            the norm. </p>
+          <div class="">
+            <i class="fab fa-medium"></i> <span><a href="#medium.com-article-that-I-haven't-written-yet">Published on
+                Medium</a> on Feb 12, 2020</span>
+          </div>
+        </div>
+        <div class="article-card">
+          <a class="title" href="#medium.com-article-that-I-haven't-written-yet">
+            <h3>The UX scene in Brazil<i class="fas fa-external-link-alt"></i></h3>
+          </a>
+          <p>A decade ago, most employers would've balked at the idea of employees regularly working from home. Today is
+            the norm. </p>
+          <div class="">
+            <i class="fab fa-medium"></i> <span><a href="#medium.com-article-that-I-haven't-written-yet">Published on
+                Medium</a> on Feb 12, 2020</span>
+          </div>
+        </div>
+        <div class="article-card">
+          <a class="title" href="#medium.com-article-that-I-haven't-written-yet">
+            <h3>Designers should love Sass and CSS<i class="fas fa-external-link-alt"></i></h3>
+          </a>
+          <p>A decade ago, most employers would've balked at the idea of employees regularly working from home. Today is
+            the norm. </p>
+          <div class="">
+            <i class="fab fa-medium"></i> <span><a href="#medium.com-article-that-I-haven't-written-yet">Published on
+                Medium</a> on Feb 12, 2020</span>
+          </div>
+        </div>
+        <div class="article-card">
+          <a class="title" href="#medium.com-article-that-I-haven't-written-yet">
+            <h3>The logic of experience for newbies<i class="fas fa-external-link-alt"></i></h3>
+          </a>
+          <p>A decade ago, most employers would've balked at the idea of employees regularly working from home. Today is
+            the norm. </p>
+          <div class="">
+            <i class="fab fa-medium"></i> <span><a href="#medium.com-article-that-I-haven't-written-yet">Published on
+                Medium</a> on Feb 12, 2020</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="container">
+      <h6>
+        ©
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+        Bruno Lucena. Thanks for visiting and please get in touch if you'd like to connect or collaborate.
+        <i class="fa fa-heart pulse" aria-hidden="true"></i> by <a href="contact.html">Bruno Lucena</a>
+      </h6>
+    </div>
+  </footer>
+  <!-- JS Codes-->
+  <script src="https://code.jquery.com/jquery-3.5.0.min.js"
+    integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+  <script src="/_assets/js/navbar.js"></script>
 </body>
 
 </html>
