@@ -471,7 +471,7 @@ fieldset textarea {
 fieldset textarea {
   height: 6em;
   font-size: 1em;
-  font-family: Lato, Helvetica Neue, Helvetica, sans-serif;
+  font-family: $ubuntu;
 }
 
 fieldset input:not(#spam):hover,
