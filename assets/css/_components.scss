@@ -391,7 +391,7 @@ header .menu-btn:checked~.menu-icon .hamburguer:after {
   }
 
   @media all and (min-width: $desktop) {
-    grid-gap: 3rem;
+    grid-gap: 0rem;
   }
 }
 
