@@ -49,7 +49,7 @@ h1 {
 h2 {
   font-size: $regular;
   line-height: 1.2;
-  margin: 1.5rem 0;
+  margin: 1.5rem 0 0.5rem;
   @media all and (min-width: $tablet) {
     font-size: $big;
     font-weight: 600;
