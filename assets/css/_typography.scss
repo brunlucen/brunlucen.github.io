@@ -4,17 +4,18 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: $libre;
+  font-family: $grotesk;
+  font-weight: 600;
 }
 
 p,
 p span {
-  font-family: $ubuntu;
+  font-family: $ibm;
 }
 
 // Headlines
 h1 {
-  font-size: $large;
+  font-size: $regular;
   line-height: 1.2;
   margin: 1.5rem 0;
   @include theme-colors($dark-theme: true);
@@ -22,22 +23,38 @@ h1 {
   .scrolled &,
   .light & {
     @include theme-colors($dark-theme: false);
-    font-size: $big;
+    font-size: $semi-normal;
+  }
+
+  @media all and (min-width: $tablet-sm) {
+    font-size: $regular;
   }
 
   @media all and (min-width: $tablet) {
-    font-size: 64px;
+    font-size: $big;
   }
 
   @media all and (min-width: $desktop) {
-    font-size: 64px;
-    width: 60%;
+    font-size: $big;
+    font-weight: 600;
+    width: 100%;
+  }
+  @media all and (min-width: $big-desktop) {
+    font-size: $large;
+    font-weight: 600;
+    width: 100%;
   }
 }
 
 h2 {
   font-size: $regular;
   line-height: 1.2;
+  margin: 1.5rem 0;
+  @media all and (min-width: $tablet) {
+    font-size: $big;
+    font-weight: 600;
+    width: 100%;
+  }
 }
 
 h3 {
@@ -45,20 +62,19 @@ h3 {
 }
 
 h4 {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  font-family: $ubuntu;
-  font-weight: 800;
+  font-size: 22px;
+  text-transform: none;
+  font-weight: 700;
 }
 
 h6 {
   font-size: small;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 p {
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.35;
   margin-bottom: 1rem;
   @include theme-colors($dark-theme: true);
 
@@ -83,19 +99,56 @@ p {
 
     @media all and (min-width: $desktop) {
       font-size: 1.25rem;
-      width: 50%;
+      width: 100%;
     }
   }
 }
 
+.cursive {
+  font-family: $cursive;
+  font-size: 2rem;
+  margin-bottom: 0 rem;
+  font-weight: 400;}
+
 // Links
-a {
+p.link {font-size: 18px;}
+.link, a {
   color: $link;
   text-decoration: none;
   position: relative;
+  .font-light { font-weight: 300;}
 }
 
-a:hover {
-  color: black;
-  transition: all 0.3s;
+.underline-text {  
+   background-image: linear-gradient(transparent 65%, rgb(252, 241, 19) 0px);
+  background-repeat: no-repeat;
+  text-decoration: none;
+  /* Set initial size to 0% */
+  background-size: 0% 100%;
+  
+  /* Apply the animation */
+  /* duration: 0.6s, delay: 0.5s, 'forwards' ensures it stays at 100% */
+  animation: draw-bg 0.9s ease-out 0.5s forwards;
 }
+
+@keyframes draw-bg {
+  to {
+    background-size: 100% 100%;
+  }
+}
+
+
+ a:hover .underline:hover { 
+  background-size: 100% 100%;
+}
+
+i {font-size: smaller;}
+
+.bold {font-weight: bold;}
+
+ /*a .underline{width:100%;background-image:linear-gradient(transparent calc(100% - 2px),#000 2px);background-repeat:no-repeat;background-size:0 100%;-webkit-transition:background,.5s;transition:background,.5s}
+ a:hover .underline{color:#231f20;background-size:100% 100%}*/
+
+ // Utilities
+ .center {text-align: center;}
+ .constrain {max-width: 800px; margin-left: auto; margin-right: auto;}

@@ -27,6 +27,7 @@ header {
   &.scrolled,
   &.light {
     @include bg-colors($dark-bg: true);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
   }
 
   width: 100%;
@@ -36,11 +37,14 @@ header {
   display: grid;
   grid-template-areas: 'logo logo hamb'
   'menu menu menu';
-  transition: 0.3s background-color ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 a.logo {
   @extend %flex-left;
+  font-family: $grotesk;
+  font-weight: 700;
+  font-size: 20px;
   text-decoration: none;
   @include theme-colors($dark-theme: true);
   z-index: 200;
@@ -52,7 +56,7 @@ a.logo {
   }
 
   span {
-    margin-right: 0.3rem
+    margin-right: 0.0rem
   }
 
   transition: 0.3s all ease-in-out;
@@ -64,7 +68,7 @@ header nav {
   grid-area: menu;
   display: flex;
   top: 0;
-  height: 100vh;
+  height: fit-content;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -89,11 +93,14 @@ header nav {
 }
 
 .fill {
-  object-fit: cover;
+  object-fit: none;
+    @media all and (min-width: $tablet) {
+      object-fit: cover;
+    }
 }
 
 nav ul li a {
-  font-family: $libre;
+  font-family: $grotesk;
   display: block;
   width: fit-content;
   margin: 1.5rem 0;
@@ -110,8 +117,7 @@ nav ul li a {
     .light & {
       @include theme-colors($dark-theme: false);
     }
-
-    font-family: $ubuntu;
+    font-weight: 400;
     font-size: 1.2em;
     padding: 0 2rem;
   }
@@ -332,19 +338,84 @@ header .menu-btn:checked~.menu-icon .hamburguer:after {
   transform: translate(0px, 1em);
 }
 
+// Image and videos
+video{
+  margin: 0 auto;
+    display: flex;
+    max-width: cover;
+    overflow: clip;
+    min-height: 300px;
+    max-height: 350px;
+    border-radius: 12px;
+    width: 100%;
+
+    @media all and (min-width: $desktop) {
+    max-height: 450px;
+  }
+}
+
+// Principles
+.principles {
+  margin: 3rem 0;
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @media all and (min-width: $tablet-sm) {
+    flex-direction: row;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  @media all and (min-width: $desktop) {
+    flex-direction: row;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+  }
+  div {
+    @extend %flex-center;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+    padding: 2rem;
+    justify-content: space-between;
+    border-radius: 0.5rem;
+    max-width: 100%;
+    margin: 1rem 0 0;
+           @media all and (min-width: $tablet) {
+            margin: 0;
+           }
+  }
+  img { max-width: 220px;
+    max-height: min-content;
+          align-self: center;
+        }
+  div:nth-child(1) {
+    background-color: #FEDF60;
+  }
+  div:nth-child(2) {
+    background-color: #9DC7D5;
+  }
+  div:nth-child(3) {
+    background-color: #CAC3F8;
+  }
+
+  p {
+    @extend %subtitles;
+  }
+}
 
 // Project Card
 .project-card {
   @extend %flex-center;
   flex-direction: column;
-  margin: 3rem 0 0;
-
+  margin: 0rem 0 0;
+  
   a & {
     color: $light-text;
     text-decoration: none;
-  }
+  } 
 
-  h3 {
+  h2 {
     @extend %titles;
 
     i {
@@ -364,30 +435,29 @@ header .menu-btn:checked~.menu-icon .hamburguer:after {
     transition: all 0.3s;
 
     :hover {
-      transform: translateY(-10px);
+      transform: scale(0.95, 0.95);
       transition: all 0.3s;
-      box-shadow: 8px 10px 15px 0px rgba(0, 0, 0, 0.15);
     }
   }
-
+  
   img {
     width: 100%;
-    max-height: 200px;
+    max-height: min-content;
     border-radius: 0.3rem;
-    border: 1px solid lightgray;
+    /* border: 1px solid lightgray; */
     transition: all 0.3s;
 
     @media all and (min-width: $tablet) {
-      max-height: 300px;
+      max-height: fit-content;
     }
 
     @media all and (min-width: $desktop) {
-      max-height: 300px;
+      max-height: fit-content;
     }
   }
 
   @media all and (min-width: $tablet) {
-    grid-column: 1/1;
+    grid-column: 0;
   }
 
   @media all and (min-width: $desktop) {
@@ -425,116 +495,42 @@ header .menu-btn:checked~.menu-icon .hamburguer:after {
   }
 }
 
-// Forms in the contact page
-
-form {
+// Grid
+.testimonial-grid {
   display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 3rem;
   margin: 3rem 0;
-  background-color: white;
-  border-radius: 0.75em;
-
-  @media (min-width: $tablet) {
-    width: 100%;
-    margin: 2rem auto;
-  }
-
-  @media screen and (min-width: $desktop) {
-    font-size: 1.3rem;
-    margin: 3rem auto;
-    padding: 0;
+  @media all and (min-width: $tablet-sm) {
     grid-template-columns: 1fr 1fr;
-    grid-gap: 1em;
-  }
-}
-
-form fieldset {
-  width: 100%;
-
-  margin: 0.5rem 0;
-}
-
-fieldset label {
-  width: 100%
-}
-
-fieldset input:not(#spam),
-fieldset textarea {
-  width: 100%;
-  padding: 0.6em;
-  border: 1px solid black;
-  margin-top: 0.3em;
-  transition: all 0.4s;
-  font-size: 1em;
-  background-color: white;
-}
-
-fieldset textarea {
-  height: 6em;
-  font-size: 1em;
-  font-family: $ubuntu;
-}
-
-fieldset input:not(#spam):hover,
-fieldset textarea:hover {
-  background-color: white;
-  border: 2px solid cornflowerblue;
-}
-
-input:focus {
-  background-color: white;
-}
-
-button {
-  margin-top: 15px;
-  font-size: 1rem;
-  font-weight: bold;
-  background: $light-text;
-  border: 2px solid black;
-  padding: 0.5em 1em;
-  transition: all 0.4s;
-  width: 100%;
-  color: white;
-}
-
-button:hover {
-  background: white;
-  color: $link;
-  cursor: pointer;
-}
-
-button:active {
-  background: white;
-  border: 2px solid $link;
-  color: $link;
-  cursor: pointer
-}
-
-form fieldset.spam {
-  margin-bottom: 20px
-}
-
-/* MEDIA QUERY FOR TABLETS */
-@media (min-width: $tablet) {
-  form {
-    width: 100%;
-    margin: 2rem auto;
-  }
-}
-
-/* MEDIA QUERY FOR DESKTOP */
-@media screen and (min-width: $desktop) {
-  fieldset:nth-child(3) {
-    grid-column-start: 1;
-    grid-column-end: 3;
   }
 
-  button {
-    width: fit-content;
-    padding: 0.7em 1em;
-    grid-column-start: 1;
-    grid-column-end: 2;
+  @media all and (min-width: $desktop) {
+    grid-template-columns: 1fr 1fr 1fr;
   }
+
+  div.testimonial {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 0.5rem;
+
+    h5 {
+      font-size: $small;
+      font-weight: 500;
+      line-height: 1.4;
+      margin-bottom: 1rem;
+    }
+    p.link {
+      font-size: 1rem;
+      font-weight: 400;
+      color: darkslategray;
+      text-decoration: underline;
+      transition: all ease-in-out 0.5s;
+    }
 }
+}
+
 
 // Projects
 
@@ -546,25 +542,61 @@ form fieldset.spam {
     margin: 1rem 0;
   }
 
-  img {
+  a{
+    margin-right: 0.7rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    img {
     border-radius: 50%;
     width: 100%;
-    max-width: 2.2rem;
+    max-width: 4rem;
     margin-right: 0.7rem;
+    border: 4px solid transparent;
+    transition: all ease-in-out 0.5s;
+    } 
+  }
+  a:hover {
+    img {
+    border-color: $hover;
+    transition: all ease-in-out 0.5s;
+    }
+    p.link {
+      color: $link;
+      transition: all ease-in-out 0.5s;
+    }
   }
 
   div {
-    margin-right: 0.7rem;
+    margin-right: 0;
     display: flex;
     flex-direction: column;
   }
 
   h5 {
-    font-family: $ubuntu;
+    font-family: $ibm;
   }
 
   p {
-    font-size: 0.75rem;
-    margin: 0;
+    font-size: 0.85rem;
+    margin: 2px 0 0 0;
   }
+}
+
+// Footers
+.typeform-widget button {
+  font-family: $grotesk !important;
+    background: linear-gradient(black 0 0) no-repeat calc(200% - var(--p, 100%))
+    100% / 200% var(--p, 0.0em)!important;
+  transition: 0.3s var(--t, 0s),
+    background-position 0.3s calc(0.3s - var(--t, 0s)) !important;
+    border: 2px solid black !important;
+    color: black !important;
+}
+
+.typeform-widget button:hover {
+  --p: 100% !important;
+  --t: 0.3s !important;
+  color: #fff !important;
 }

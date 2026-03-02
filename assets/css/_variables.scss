@@ -1,22 +1,27 @@
 // Font placeholders
-$ubuntu: 'Ubuntu',
-sans-serif;
-$libre: 'Libre Baskerville',
-serif;
+$ubuntu: 'Ubuntu', sans-serif;
+$libre: 'Libre Baskerville', serif;
+$grotesk: 'Bricolage Grotesque';
+$ibm: 'IBM Plex Sans', sans-serif;
+$cursive: 'Marck Script', cursive;
 
 // Color placeholders
-$light-background: white;
-$light-text: #0d1117 ;
-$dark-background: #0d1117;
+$light-background: #fafafa;
+$light-text: #323232;
+$dark-background: #9268b7;
 $dark-text: #d2e1dd;
-$hover: yellow;
+$hover: #FCDD69;
 $link: cornflowerblue;
+$ybg-background: #FFFFC8;
+$blue: aliceblue;
 
 // Size placeholders
 $large: 3.5rem;
-$big: 2.8rem;
+$big: 2.5rem;
 $regular: 2rem;
+$semi-normal: 1.75rem;
 $normal: 1.5rem;
+$small: 1.25rem;
 
 // Paddings and margins
 $padding-mobile: 2rem;
@@ -35,7 +40,7 @@ $padding-mobile: 2rem;
 }
 
 %outline {
-  color: black;
+  color: $dark-text;
   /* Fall back color */
   -webkit-text-fill-color: white;
   /* Overriding color */
@@ -44,8 +49,8 @@ $padding-mobile: 2rem;
 }
 
 %titles {
-  font-size: 22px;
-  line-height: 1.4;
+  font-size: $semi-normal;
+  line-height: 1.2;
   margin: 0.5rem 0;
 }
 
@@ -65,7 +70,7 @@ $padding-mobile: 2rem;
 // Mixins for dark and light theme
 @mixin theme-colors($dark-theme: true) {
   @if $dark-theme {
-    color: $dark-text;
+    color: $light-text; // light-text
   }
 
   @else {
@@ -75,14 +80,17 @@ $padding-mobile: 2rem;
 
 @mixin bg-colors($dark-bg: true) {
   @if $dark-bg {
-    background: $light-background;
+    background: white;
+    border-bottom: 1px solid #E7E7E7;
   }
 
   @else {
-    background: $dark-background;
+    background: $light-background;
   }
 }
 
 // Media Queries
-$tablet: 768px;
+$tablet-sm:640px;
+$tablet: 1024px;
 $desktop: 1200px;
+$big-desktop: 1600px;

@@ -1,16 +1,9 @@
-$(function () {
-  var header = $('header')
 
-  $(window).scroll(function () {
-    var scroll = $(window).scrollTop()
-    if (scroll >= 400) {
-      header.addClass('scrolled')
-    } else {
-      header.removeClass('scrolled')
-    }
-  })
-})
 
+[...document.querySelectorAll('.grid')].forEach(grid => new SpreadGrid(grid));
+
+// Preload images
+preloadImages('.grid__item-img').then( _ => document.body.classList.remove('loading'));
 
 // Function to shuffle the letters of a word
 function shuffleWord(word) {
