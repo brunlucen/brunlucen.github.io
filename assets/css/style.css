@@ -1214,7 +1214,7 @@ a .project-card {
 }
 @media all and (min-width: 1200px) {
   .testimonial-grid {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
 .testimonial-grid div.testimonial {
