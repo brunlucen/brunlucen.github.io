@@ -1118,6 +1118,7 @@ video {
   max-height: -moz-min-content;
   max-height: min-content;
   align-self: center;
+  margin-bottom: 1rem;
 }
 .principles div:nth-child(1) {
   background-color: #FEDF60;
