@@ -1,96 +1,32 @@
-// Font placeholders
-$ubuntu: 'Ubuntu', sans-serif;
-$libre: 'Libre Baskerville', serif;
-$grotesk: 'Bricolage Grotesque';
-$ibm: 'IBM Plex Sans', sans-serif;
-$cursive: 'Marck Script', cursive;
+$font-display: "Bricolage Grotesque", "Aptos Display", "Segoe UI", sans-serif;
+$font-body: "IBM Plex Sans", "Aptos", "Segoe UI", sans-serif;
 
-// Color placeholders
-$light-background: #fafafa;
-$light-text: #323232;
-$dark-background: #9268b7;
-$dark-text: #d2e1dd;
-$hover: #FCDD69;
-$link: cornflowerblue;
-$ybg-background: #FFFFC8;
-$blue: aliceblue;
+$color-page: #fafafa;
+$color-surface: #ffffff;
+$color-text: #323232;
+$color-link: #3f5f5d;
+$color-link-hover: #263f3d;
+$color-focus: #3f5f5d;
+$color-border: #e7e7e7;
+$color-highlight: #fcf113;
+$color-warm: #ffffc8;
+$color-cool: #f0f8ff;
+$color-principle-one: #fedf60;
+$color-principle-two: #9dc7d5;
+$color-principle-three: #cac3f8;
 
-// Size placeholders
-$large: 3.5rem;
-$big: 2.5rem;
-$regular: 2rem;
-$semi-normal: 1.75rem;
-$normal: 1.5rem;
-$small: 1.25rem;
+$radius-small: 0.3rem;
+$radius-card: 0.5rem;
+$radius-media: 0.75rem;
+$shadow-header: 5px 5px 15px rgb(0 0 0 / 0.1);
 
-// Paddings and margins
-$padding-mobile: 2rem;
+$content-width: 1200px;
+$text-width: 800px;
+$header-height: 68px;
+$header-height-mobile: 112px;
+$montage-gap: 16px;
 
-// Useful
-%flex-left {
-  align-items: center;
-  justify-content: left;
-  display: flex;
-}
-
-%flex-center {
-  display: flex;
-  align-content: center;
-  justify-content: center;
-}
-
-%outline {
-  color: $dark-text;
-  /* Fall back color */
-  -webkit-text-fill-color: white;
-  /* Overriding color */
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
-}
-
-%titles {
-  font-size: $semi-normal;
-  line-height: 1.2;
-  margin: 0.5rem 0;
-}
-
-%subtitles {
-  color: $light-text;
-  margin: 0.5rem 0;
-  line-height: 1.4;
-  font-size: 0.9rem;
-}
-
-%bg {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-// Mixins for dark and light theme
-@mixin theme-colors($dark-theme: true) {
-  @if $dark-theme {
-    color: $light-text; // light-text
-  }
-
-  @else {
-    color: $light-text;
-  }
-}
-
-@mixin bg-colors($dark-bg: true) {
-  @if $dark-bg {
-    background: white;
-    border-bottom: 1px solid #E7E7E7;
-  }
-
-  @else {
-    background: $light-background;
-  }
-}
-
-// Media Queries
-$tablet-sm:640px;
-$tablet: 1024px;
-$desktop: 1200px;
-$big-desktop: 1600px;
+$breakpoint-small: 640px;
+$breakpoint-medium: 1024px;
+$breakpoint-large: 1200px;
+$breakpoint-wide: 1600px;

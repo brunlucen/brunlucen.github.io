@@ -1,154 +1,144 @@
-// Typography: Here you'll find all typography rules,
+@use "variables" as *;
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url("../fonts/bricolage-grotesque-latin-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 100 700;
+  font-display: swap;
+  src: url("../fonts/ibm-plex-sans-latin-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
 h1,
 h2,
 h3,
 h4 {
-  font-family: $grotesk;
+  color: $color-text;
+  font-family: $font-display;
   font-weight: 600;
 }
 
-p,
-p span {
-  font-family: $ibm;
+h1 {
+  margin: 1.5rem 0;
+  font-size: 2rem;
+  line-height: 1.2;
 }
 
-// Headlines
-h1 {
-  font-size: $regular;
-  line-height: 1.2;
-  margin: 1.5rem 0;
-  @include theme-colors($dark-theme: true);
-
-  .scrolled &,
-  .light & {
-    @include theme-colors($dark-theme: false);
-    font-size: $semi-normal;
-  }
-
-  @media all and (min-width: $tablet-sm) {
-    font-size: $regular;
-  }
-
-  @media all and (min-width: $tablet) {
-    font-size: $big;
-  }
-
-  @media all and (min-width: $desktop) {
-    font-size: $big;
-    font-weight: 600;
-    width: 100%;
-  }
-  @media all and (min-width: $big-desktop) {
-    font-size: $large;
-    font-weight: 600;
-    width: 100%;
+@media (max-width: 20rem) {
+  h1 {
+    letter-spacing: -0.0125em;
   }
 }
 
 h2 {
-  font-size: $regular;
-  line-height: 1.2;
   margin: 1.5rem 0 0.5rem;
-  @media all and (min-width: $tablet) {
-    font-size: $big;
-    font-weight: 600;
-    width: 100%;
-  }
+  font-size: 2rem;
+  line-height: 1.2;
 }
 
 h3 {
-  @extend %titles;
+  margin: 0.5rem 0;
+  font-size: 1.75rem;
+  line-height: 1.2;
 }
 
 h4 {
-  font-size: 22px;
-  text-transform: none;
+  font-size: 1.375rem;
   font-weight: 700;
 }
 
-h6 {
-  font-size: small;
-  font-weight: 600;
-}
-
 p {
+  margin-bottom: 1rem;
   font-size: 1rem;
   line-height: 1.35;
-  margin-bottom: 1rem;
-  @include theme-colors($dark-theme: true);
-
-  .scrolled &,
-  .light & {
-    @include theme-colors($dark-theme: false);
-  }
-
-  @media all and (min-width: $tablet) {
-    font-size: 1rem;
-  }
-
-  @media all and (min-width: $desktop) {
-    font-size: 1.1rem;
-  }
-
-  &.leading {
-
-    @media all and (min-width: $tablet) {
-      font-size: 1.25rem;
-    }
-
-    @media all and (min-width: $desktop) {
-      font-size: 1.25rem;
-      width: 100%;
-    }
-  }
 }
 
-.cursive {
-  font-family: $cursive;
-  font-size: 2rem;
-  margin-bottom: 0 rem;
-  font-weight: 400;}
+strong {
+  font-weight: 700;
+}
 
-// Links
-p.link {font-size: 18px;}
-.link, a {
-  color: $link;
-  text-decoration: none;
+a {
   position: relative;
-  .font-light { font-weight: 300;}
+  color: $color-link;
+  text-decoration-line: underline;
+  text-decoration-thickness: 0.1em;
+  text-underline-offset: 0.2em;
 }
 
-.underline-text {  
-   background-image: linear-gradient(transparent 65%, rgb(252, 241, 19) 0px);
+a:hover {
+  color: $color-link-hover;
+  text-decoration-thickness: 0.16em;
+}
+
+:focus-visible {
+  outline: 3px solid $color-focus;
+  outline-offset: 3px;
+  border-radius: 0.15rem;
+}
+
+.leading {
+  width: 100%;
+}
+
+.section-lead {
+  margin-bottom: 6rem;
+}
+
+.underline-text {
+  background-image: linear-gradient(transparent 65%, $color-highlight 0);
   background-repeat: no-repeat;
+  background-size: 100% 100%;
   text-decoration: none;
-  /* Set initial size to 0% */
-  background-size: 0% 100%;
-  
-  /* Apply the animation */
-  /* duration: 0.6s, delay: 0.5s, 'forwards' ensures it stays at 100% */
-  animation: draw-bg 0.9s ease-out 0.5s forwards;
 }
 
-@keyframes draw-bg {
+.motion-playing .underline-text {
+  background-size: 0 100%;
+  animation: draw-highlight 0.9s ease-out 0.5s forwards;
+}
+
+@keyframes draw-highlight {
   to {
     background-size: 100% 100%;
   }
 }
 
+@media (min-width: $breakpoint-medium) {
+  h1,
+  h2 {
+    width: 100%;
+    font-size: 2.5rem;
+  }
 
- a:hover .underline:hover { 
-  background-size: 100% 100%;
+  .leading {
+    font-size: 1.25rem;
+  }
 }
 
-i {font-size: smaller;}
+@media (min-width: $breakpoint-large) {
+  p {
+    font-size: 1.1rem;
+  }
+}
 
-.bold {font-weight: bold;}
+@media (min-width: $breakpoint-wide) {
+  h1 {
+    font-size: 3.5rem;
+  }
+}
 
- /*a .underline{width:100%;background-image:linear-gradient(transparent calc(100% - 2px),#000 2px);background-repeat:no-repeat;background-size:0 100%;-webkit-transition:background,.5s;transition:background,.5s}
- a:hover .underline{color:#231f20;background-size:100% 100%}*/
-
- // Utilities
- .center {text-align: center;}
- .constrain {max-width: 800px; margin-left: auto; margin-right: auto;}
+@media (prefers-reduced-motion: reduce) {
+  .underline-text,
+  .motion-playing .underline-text {
+    background-size: 100% 100%;
+    animation: none;
+  }
+}

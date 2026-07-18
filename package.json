@@ -1,0 +1,29 @@
+{
+  "name": "brunlucen-github-io",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "^22.22.0 || >=24.8.0"
+  },
+  "scripts": {
+    "styles:build": "node scripts/styles.mjs --write",
+    "styles:watch": "node scripts/styles.mjs --watch",
+    "styles:check": "node scripts/styles.mjs --check",
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/serve-dist.mjs",
+    "preview:source": "node scripts/serve-dist.mjs --root=source --port=4174",
+    "check:html": "html-validate dist/index.html dist/404.html",
+    "check:links": "node scripts/check-local-references.mjs",
+    "check:static": "npm run styles:check && npm run build && npm run check:html && npm run check:links",
+    "test:a11y": "playwright test",
+    "check": "npm run check:static && npm run test:a11y",
+    "test": "npm run check"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.12.1",
+    "@playwright/test": "1.61.1",
+    "html-validate": "11.5.6",
+    "sass": "1.101.0"
+  }
+}
